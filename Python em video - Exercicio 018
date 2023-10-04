@@ -1,0 +1,24 @@
+import math
+
+def seno_coss_tang ():
+    while True:
+        try:
+         valor = float(input('Digite o angulo que você deseja:'))
+         break
+       
+        except ValueError:
+           print('Digite o valor correto no campo acima! Ex: (30)') 
+
+    angulo_radiano = math.radians(valor)
+    seno = math.sin(angulo_radiano)
+    cosseno = math.cos(angulo_radiano)
+    tangente = math.tan(angulo_radiano)
+
+    print(f'O seno de {valor}° é: {round(seno,2)}')
+    print(f'O cosseno de {valor}° é: {round(cosseno,2)}')
+    print(f'A tangente de {valor}° é: {round(tangente,2)}')
+
+seno_coss_tang()
+
+
+    

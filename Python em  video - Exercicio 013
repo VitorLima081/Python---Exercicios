@@ -1,0 +1,15 @@
+def reajuste_salarial ():
+    
+    while True:
+        try:
+            salario = float(input('Digite o seu salario atual: R$'))
+            break
+        except ValueError:
+            print('Digite o salario em forma numerica!')
+            
+    reajuste = (salario*15) / 100
+    salario_final = salario+reajuste
+
+    print(f'O novo salario do CLT é: R$ {salario_final}')
+
+reajuste_salarial()

@@ -1,0 +1,49 @@
+import pygame
+import time
+
+def carregar_arquivo():
+    pygame.mixer.init()
+    print('Insira o caminho do audio que deseja ouvir abaixo...')
+    while True:
+        try:
+            pygame.mixer.music.load(input('Qual audio você desejar ouvir?!'))
+            break
+        except pygame.error:
+            print('ERRO. Verifique se o caminho esta correto...')    
+    
+    print('Carregando o audio...')
+    time.sleep(3)
+    ouvir_audio()
+    
+def ouvir_audio():
+    
+        while True:
+            try:
+                estado = pygame.mixer.music.get_busy()
+                print('Abaixo digite o que você deseja fazer com o audio: executar/parar/encerrar')
+                definir = str(input('Digite o que desejar fazer com o audio:'))
+            
+                if definir == 'executar':
+                    pygame.mixer.music.play()
+                    
+
+                if definir == 'parar':
+                    pygame.mixer.music.pause()
+                    
+
+                if definir == 'encerrar':
+                    print('O programa foi encerrado, obrigado por ultilizar nossos serviços!') 
+                    pygame.mixer.quit() 
+                    break  
+
+                if estado == True:
+                     print('Você nao esta ouvindo uma musica atualmente...')
+
+                if estado == False:
+                     print('Você esta ouvindo uma musica atualmente...')     
+
+            except ValueError:
+                 print('Digite os comandos corretos!')    
+
+carregar_arquivo()
+

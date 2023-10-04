@@ -1,0 +1,36 @@
+from forex_python.converter import CurrencyRates
+
+
+def conversao_moedas():
+    
+    conversao = CurrencyRates()
+    valor = None
+    lista_simbolos = []
+    print("BEM-VINDO A CONVERSÃO DE MOEDAS!")
+    print('----------------------------------')
+
+    while True:
+
+        try:
+            valor = float(input('Digite o valor pra obter a conversão atual: R$'))
+            break
+
+        except ValueError:
+            print('Você não digitou um numero!')
+
+    real_euro = conversao.get_rate('EUR', 'BRL')
+    real_dolar = conversao.get_rate('USD', 'BRL')
+    real_libra = conversao.get_rate('GBP', 'BRL')
+    real_iene = conversao.get_rate('JPY', 'BRL')
+    real_dolar_canadense = conversao.get_rate('CAD', 'BRL')
+    lista_simbolos = [real_euro, real_dolar, real_libra, real_iene, real_dolar_canadense]
+    lista_simbolos_print = ['Euro', 'Dólar', 'Libra', 'Iene', 'Dolar canadense' ]
+        
+    
+    for elementos, simbolos in zip(lista_simbolos, lista_simbolos_print):
+        conversao_final = valor*elementos
+        print(f'{valor} {simbolos} na cotação atual: R$ {round(conversao_final,2)}')
+
+
+
+conversao_moedas()

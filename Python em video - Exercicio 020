@@ -1,0 +1,40 @@
+import random
+
+def sortear_ordem_valores():
+    
+    sorteio = []
+    contador = 0
+    
+    while True:
+        try:
+         quantidade = int(input('Quantos valores você desejar sortear:'))
+         ordem_sorteio = [i for i in range(1, quantidade +1)]
+         break
+        
+        except ValueError:
+            print('!ERRO!')
+            print('Digite a quantidade de valores que você ira sortear. Ex: 5')
+    
+    while True:
+        try:
+            if quantidade > 1:
+                valores = input('Digite os valores que você deseja sortear:')
+                sorteio.append(valores)
+                contador +=1
+            
+            if quantidade <= contador:
+                valores
+
+            if contador == quantidade:
+                break
+        
+        except ValueError:
+            print('Digite os campos de forma correta!') 
+    
+
+    random.shuffle(sorteio)
+    for elemento, ordem in zip(sorteio, ordem_sorteio):
+        print(f'{ordem}° {elemento}')
+    
+
+sortear_ordem_valores()     

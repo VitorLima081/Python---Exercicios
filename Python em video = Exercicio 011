@@ -1,0 +1,23 @@
+def calcular_pintura ():
+
+    while True:
+        try:
+            largura = float(input('Digite a largura de sua parede:'))
+            altura = float(input('Digite a altura de sua parede:'))
+            break
+
+        except ValueError:
+            print('Digite os valores solicitados com os caracteres corretos (NUMEROS)')
+        
+    area_parede = largura*altura
+    litros_necessario = area_parede / 6
+    
+    if litros_necessario >= 1:
+        print(f'Você ira precisar de {round(litros_necessario,2)} litros pra pintar sua parede!')
+
+    else:
+        print(f'Você ira precisar de {round(litros_necessario,3)} ML pra pintar sua parede!')
+                
+
+
+calcular_pintura()    

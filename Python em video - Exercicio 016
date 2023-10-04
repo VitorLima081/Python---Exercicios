@@ -1,0 +1,11 @@
+def quebrando_numero():
+    while True:
+        try:
+            valor = float(input('Digite um numero decimal:'))
+            break
+        except ValueError:
+            print('Digite um numero com casas decimais!')
+
+    print(f'O numero inteiro {valor} tem a parte inteira {round(valor)}')
+
+quebrando_numero()

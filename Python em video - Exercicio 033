@@ -1,0 +1,27 @@
+def recebendo_dados ():
+    valores = [i for i in range(1, 3 +1)]
+    numeros = []
+    contador = 0
+    
+    while True:
+        try:
+            
+            for elemento in valores:
+             valor = int(input(f'Digite o {elemento}º valor:'))
+             numeros.append(valor)
+            
+            if isinstance(valor, int):
+             break
+
+        except ValueError:
+            print('Verifique o erro e tende novamente. Só são aceitos caracteres relacionados a letras!') 
+
+    analisando_dados(numeros)
+
+def analisando_dados(numeros):
+    maior_numero = max(numeros)
+    menor_numero = min(numeros)
+    print(f'O maior numero é: {maior_numero}')
+    print(f'O menor numero é: {menor_numero}') 
+
+recebendo_dados()    

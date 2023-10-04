@@ -1,0 +1,29 @@
+def recebendo_dados():
+    while True:
+
+        nome = input('Digite o seu nome:').lower()
+        if nome == "":
+            print('Verifique suas informações fornecidas, só aceitamos caracteres em letras!')
+
+        elif all(elemento.isalpha() for elemento in nome.split()):
+            break
+
+        else:
+            print('Verifique suas informações fornecidas, só aceitamos caracteres em letras!')
+
+    analisando_string(nome)
+
+def analisando_string(nome):
+    partindo = nome.split()
+    primeiro = partindo[0]
+    ultimo = partindo[-1]
+
+    print(f' O seu primeiro nome é: {primeiro.capitalize()}.')
+    print(f' O seu ultimo nome é: {ultimo.capitalize()}')
+
+recebendo_dados()    
+
+
+        
+
+

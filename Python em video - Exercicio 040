@@ -1,0 +1,60 @@
+import time
+
+class CalculandoMedia():
+    def __init__(self):
+        pass
+
+    def recebendo_dados(self):
+        dados = [1,2]
+        self.medias = []
+        while True:
+
+            try:
+                print('-=' * 20)
+                print("\x1b[33mSEJA BEM VINDO AO CALCULADORA DE MEDIAS!\x1b[0m")
+                print('-=' * 20)
+
+                for elemento in dados:
+                    self.valor = float(input(f'Digite a {elemento}º nota:'))
+                    self.medias.append(self.valor)
+                
+                if isinstance(self.valor, float):
+                    break
+
+            except ValueError:
+             print("\x1b[33m!ERRO! - VERIFIQUE OS DADOS, SÃO ACEITO APENAS CARACTERES NUMERICOS. EX(5.0) - !ERRO!\x1b[0m")
+
+        self.calculo()    
+
+    def calculo(self):
+        while True:
+            maior = max(self.medias)
+            menor = min(self.medias)
+            media = (maior+menor) /2
+
+            print("\x1b[31mCAUCULANDO SUA MEDIA...\x1b[0m")
+            time.sleep(3)
+
+            if media < 5.0:
+                print(f"Sua media foi {media}. Você esta \x1b[33mREPROVADO!\x1b[0m")
+                break
+
+            if media >= 7.0:
+                print(f"Sua media foi {media}. Você esta \x1b[33mAPROVADO!\x1b[0m")
+                break
+
+            if media > 5.0 and media < 6.9:
+                print(f"Sua media foi {media}. Você esta em \x1b[33mRECUPERAÇÃO!\x1b[0m")
+                break
+
+if __name__ == "__main__":
+    servico = CalculandoMedia()
+    servico.recebendo_dados()
+                 
+
+
+
+
+        
+
+

@@ -1,0 +1,66 @@
+from datetime import datetime
+import time
+
+class ServicoMilitar():
+    def __init__(self):
+        pass
+
+    def recebendo_dados(self):
+
+        while True:
+            try:
+             print('-=' * 20)
+             print("\U0001F1E7\U0001F1F7 \x1b[33mSEJA BEM VINDO AO SERVIÇO MILITAR!\x1b[0m \U0001F1E7\U0001F1F7")
+             print('-=' * 20)
+        
+             self.ano = int(input('Digite seu ano de nascimento:'))
+
+             if isinstance(self.ano, int):
+                break
+
+            except ValueError:
+                print("\x1b[33m!ERRO! - VERIFIQUE OS DADOS, SÃO ACEITO APENAS CARACTERES NUMERICOS. EX(1996) - !ERRO!\x1b[0m")    
+
+        self.analisando_dados()    
+
+    def analisando_dados(self):
+       while True:
+          ano_atual = datetime.today()
+          idade = ano_atual.year - self.ano
+          alistamento_idade = 18 - idade
+          alistamento_ano = self.ano + 18
+          diferenca_ano = ano_atual.year - alistamento_ano
+
+          print("\x1b[31mANALISANDO SEUS DADOS...\x1b[0m")
+          time.sleep(3)
+
+          if idade < 18:
+             
+             print(f"Quem nasceu em {self.ano} tem {idade} anos em {ano_atual.year}!")
+             print(f"Ainda faltam {abs(diferenca_ano)} anos para o alistamento!")
+             print(f"Seu alistamento será em {alistamento_ano}!")
+             break
+          
+          if idade > 18:
+             print(f"Quem nasceu em {self.ano} tem {idade} anos em {ano_atual.year}!")
+             print(f"Você ja deveria ter se alistado há {diferenca_ano} anos!")
+             print(f"Seu alistamento foi em {alistamento_ano}!")
+             break
+          
+          if idade == 18:
+             print(f"Você nasceu em {self.ano} e tem {idade} anos em {ano_atual.year}!")
+             print("Você tem que se alistar IMEDIATAMENTE!")
+             break
+
+
+if __name__ == "__main__":
+   alistamento = ServicoMilitar()
+   alistamento.recebendo_dados()
+             
+             
+
+
+
+
+          
+

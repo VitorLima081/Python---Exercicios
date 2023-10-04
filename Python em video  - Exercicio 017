@@ -1,0 +1,18 @@
+import math
+
+def calculo_hipotenusa():
+
+    while True:
+
+        try:
+            oposto = float(input('Digite o catete oposto:'))
+            adjsacente = float(input('Digite o catete adjacente'))
+            break
+        except ValueError:
+           print('Digite os valores nos campos solicitados de forma correta!')
+
+    calculo = math.sqrt(oposto**2 + adjsacente**2)
+    print(f'A hipotenusa é: {round(calculo,2)}')
+    
+
+calculo_hipotenusa()

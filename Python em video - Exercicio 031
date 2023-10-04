@@ -1,0 +1,40 @@
+def recebendo_dados():
+    while True:
+        try:
+            valor = int(input('Qual a distancia da viagem?'))
+
+            if isinstance(valor, int):
+                break
+
+            else:
+             print('Verifique sua resposta. Só são aceito caracteres em numeros!')
+
+        except ValueError:
+            print('Por favor digite um numero valido...')        
+
+    analisando_custos(valor)
+
+def analisando_custos(valor):
+    ate_200 = 0.50
+    alem_200 = 0.45
+
+    while True:
+        if valor < 200:
+            calculo_ate200 = valor*ate_200
+            print(f'Você esta prestesa começar uma viagem de {valor:.1f} KM')
+            print(f"\x1b[31mO custo total da viagem será:R${calculo_ate200:.2f}\x1b[0m")
+            break
+
+        else:
+            calculo_alem200 = valor*alem_200
+            print(f'Você esta prestesa começar uma viagem de {valor:.1f} KM')
+            print(f"\x1b[31mO custo total da viagem será: R${calculo_alem200:.2f}\x1b[0m")
+            break
+           
+
+recebendo_dados()
+
+
+
+
+

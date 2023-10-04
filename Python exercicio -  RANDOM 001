@@ -1,0 +1,67 @@
+import random
+
+numeros = []
+
+
+def jogo_adivinhacao ():
+
+    print('SEJA BEM VINDO AO JOGO DE ADIVINHAÇÃO EM PYTHON!')
+    print('1°. Eu irei escolher aleatoriamente um numero entre 1 e 100')
+    print('2°. Você tera 5 tentativas para adivinhar qual numero eu escolhi') 
+    print('3°. Entre essas tentativas eu darei dicas como "É MAIOR! e É MENOS! que o numero que você escolheu')
+    comecar = input(str('Vamos começar? (sim/não):'))
+    if comecar == 'sim':
+        criar_numeros()
+    
+    else:
+        print('Até a proxima!')
+
+
+def criar_numeros ():
+    print('Vamos criar os numeros, esta ansioso?!')
+    numeros = [i for i in range(1, 100 + 1)]
+    print(f'Esses foram os numeros criados: {numeros}')
+    embaralhar_numeros(numeros)
+
+
+def embaralhar_numeros(numeros):
+    print(f'Segue a nova ordem dos numeros embaralhados, rs')
+    random.shuffle(numeros)
+    print(numeros)
+    escolher_numero(numeros)    
+
+def escolher_numero(numeros):
+    print('Agora vamos escolher um numero pra você adivinhar...')
+    escolhido = random.choice(numeros)
+    print('Numero escolhido, vamos começar!')
+    comecar_jogo(escolhido)
+
+
+def comecar_jogo(escolhido):
+    contador = 0
+    
+    while True:
+        
+        try:
+            resposta =int(input('Qual numero eu escolhi?!'))
+            contador +=1
+        
+            if resposta == escolhido:
+                print('Parabens, você acertou!')
+                break
+
+            if resposta < escolhido:
+                print('Mais...')
+
+            if resposta > escolhido:
+                print('Menos...')    
+
+            if contador > 5:
+                print('Suas tentativas acabaram, você perdeu!')    
+                break
+
+        except ValueError:
+         print('Digite um numero, letras e outros caracteres especiais não são aceitos!')
+
+
+jogo_adivinhacao()

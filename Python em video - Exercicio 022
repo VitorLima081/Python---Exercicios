@@ -1,0 +1,29 @@
+def recebendo_textos ():
+   
+    while True:
+
+        try:
+            nome = input('Digite seu nome completo:')
+            if nome.isalpha():
+             break
+            
+            else:
+                print('Só são aceitos caracteres em formato de letras!')
+            
+        except ValueError:
+            print('Ocorreu um erro, tente novamente!')    
+    
+    analisando_texto(nome)
+
+def analisando_texto(nome):
+    contando_valores = len(nome)
+    letras_maiusculas = nome.upper()
+    letras_minusculas = nome.lower()
+    partes = nome.split()
+    primeiro_nome = len(partes[0])
+    print(f'Seu nome contem {contando_valores} caractesres!')
+    print(f'Seu nome em letras maisculas é: {letras_maiusculas}')
+    print(f'Seu nome em letras minusculas é: {letras_minusculas}')
+    print(f'Seu primeiro nome contém {primeiro_nome} caracteres!')
+
+recebendo_textos()

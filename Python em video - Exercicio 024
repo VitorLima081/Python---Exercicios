@@ -1,0 +1,16 @@
+def recebendo_dados():
+    cidade = str(input('Digite a cidade em que você nasceu:')).lower()
+    analisando_cidade(cidade)
+
+def analisando_cidade(cidade):
+    primeiro_nome = cidade.split()[0]
+
+    if primeiro_nome == 'santo':
+        print(True)
+
+    else:
+        print(False)    
+
+
+
+recebendo_dados()

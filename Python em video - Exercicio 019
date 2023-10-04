@@ -1,0 +1,39 @@
+import random
+
+def sortear_valor():
+    
+    sorteio = []
+    contador = 0
+    
+    while True:
+        try:
+         quantidade = int(input('Quantos valores você desejar sortear:'))
+         break
+        
+        except ValueError:
+            print('!ERRO!')
+            print('Digite a quantidade de valores que você ira sortear. Ex: 5')
+    
+    while True:
+        try:
+            if quantidade > 1:
+                valores = input('Digite os valores que você deseja sortear:')
+                sorteio.append(valores)
+                contador +=1
+            
+            if quantidade <= contador:
+                valores
+
+            if contador == quantidade:
+                break
+        
+        except ValueError:
+            print('Digite os campos de forma correta!') 
+
+    loteria = random.choice(sorteio)
+    print(f'O valor sorteado é: {loteria}')        
+    
+
+sortear_valor()            
+
+

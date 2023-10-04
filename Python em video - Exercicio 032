@@ -1,0 +1,39 @@
+from datetime import datetime
+def recebendo_dados():
+    while True:
+        try:
+            valor = int(input('Qual o ano você quer verificar se é bissexto ou não:'))
+
+            if isinstance(valor, int):
+                break
+
+            else:
+             print('Verifique sua resposta. Só são aceito caracteres em numeros!')
+
+        except ValueError:
+            print('Por favor digite um numero valido...')        
+    
+    analisando_ano(valor)
+
+def analisando_ano(valor):
+    data_atual = datetime.today()
+    ano_atual = data_atual.year
+    
+    
+    while True:
+        if valor == 0:
+            valor = ano_atual
+
+        if (valor % 4 == 0 and valor % 100 != 0) or (valor % 400 == 0):
+            print(f"\x1b[33mO ano {valor} é BISSEXTO!\x1b[0m")
+            break
+        else:
+            print(f"\x1b[33mO ano {valor} não é BISSEXTO!\x1b[0m]")
+            break
+
+
+
+recebendo_dados()
+
+
+

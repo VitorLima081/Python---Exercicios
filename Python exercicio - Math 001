@@ -1,0 +1,28 @@
+import math
+
+def recebendo_comprimento():
+
+    a = float(input('Digite o primeiro comprimento do triangulo:'))
+    b = float(input('Digite o segundo comprimento do triangulo:'))
+    c = float(input('Digite o terceiro comprimento do triangulo:'))
+    formula_herao(a, b, c)
+    calcular_perimetro(a, b, c)
+
+def formula_herao(a, b, c):
+    semiperimetro = (a + b + c)/2
+    a_lado = semiperimetro - a
+    b_lado = semiperimetro - b
+    c_lado = semiperimetro - c
+    area = math.sqrt(semiperimetro *  a_lado * b_lado *  c_lado)
+    print(f'A area do triangulo é: {round(area,2)}')
+
+
+def calcular_perimetro (a, b, c):
+    perimetro = a + b + c
+    print(f'O perimetro do triangulo é: {round(perimetro,2)}')
+
+
+recebendo_comprimento()
+
+        
+

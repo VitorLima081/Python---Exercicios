@@ -1,0 +1,62 @@
+import time
+
+class ConversaoNumerica:
+    def __init__(self):
+        pass
+    
+    def recebendo_dados(self):
+        while True:
+
+            try:
+                print('-=' * 20)
+                print("\x1b[33mSEJA BEM VINDO AO CONVERSOR NUMERICO!\x1b[0m")
+                print('-=' * 20)
+                
+                self.valor = int(input('Digite o numero inteiro pra conversão:'))
+                print('ESCOLHA ATRAVES DAS REFERENCIAS SUA CONVERSÃO...')
+                time.sleep(3)
+                print('CONVERTER PARA BINARIO [1]')
+                print('CONVERTER PARA OCTAL [2]')
+                print('CONVERTER PARA HEXADECIMAL [3]')
+                self.escolha = int(input('Qual sua escolha:'))
+
+                if isinstance(self.valor, int) and isinstance(self.escolha, int):
+                    break
+
+            except ValueError:
+                print("\x1b[33m!ERRO! - Só são aceito caracteres numericos - !ERRO!\x1b[0m")    
+
+        self.convertendo_dados()
+
+    def convertendo_dados(self):
+        while True:
+            
+            print("\x1b[31mCONVERTENDO...\x1b[0m")
+            time.sleep(3)
+            if self.escolha == 1:
+                b = bin(self.valor)
+                print(f"{self.valor} em \x1b[33mBINARIO\x1b[0m é: {b}")
+                break
+
+            if self.escolha == 2:
+                o = oct(self.valor)
+                print(f"{self.valor} em \x1b[33mOCTAL\x1b[0m é: {o}")
+                break
+
+            if self.escolha == 3:
+                h = hex(self.valor)
+                print(f"{self.valor} em \x1b[33mHEXADECIMAL\x1b[0m é: {h}")
+                break
+
+
+if __name__ == "__main__":
+    conversao = ConversaoNumerica()
+    conversao.recebendo_dados()
+
+
+                
+
+
+
+
+                       

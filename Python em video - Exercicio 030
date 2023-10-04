@@ -1,0 +1,18 @@
+def recebendo_dados():
+
+    valor = int(input("\x1b[34mQual numero você quer verificar?!\x1b[0m"))
+    analisando_dados(valor)
+
+def analisando_dados(valor):
+    while True:
+        
+        if valor % 2 == 0:
+         print("O numero é \x1b[31mPAR!\x1b[0m")
+         break
+
+        else:
+         print("O numero é \x1b[31mIMPAR!\x1b[0m") 
+         break
+
+recebendo_dados()           
+

@@ -1,0 +1,76 @@
+import time
+from datetime import datetime
+
+class ClassificandoAtletas():
+    def __init__(self):
+        pass
+
+    def recebendo_dados(self):
+        while True:
+         
+         try:
+             print('-=' * 20)
+             print("\x1b[33mCLASSIFIQUE O ATLETA!\x1b[0m")
+             print('-=' * 20)
+             
+             self.ano = int(input('Qual o ano de nascimento do atleta:'))
+             
+             if self.ano < 1900:
+                print("\x1b[33m!ERRO! - SÓ SÃO ACEITO ATLETAS NASCIDOS A PARTIR DE 1900 - !ERRO!\x1b[0m")
+             
+             elif isinstance(self.ano, int):
+                break
+         
+         except ValueError:
+             print("\x1b[33m!ERRO! - VERIFIQUE OS DADOS, SÃO ACEITO APENAS CARACTERES NUMERICOS. EX(1996) - !ERRO!\x1b[0m")
+
+        self.classificando_atletas()
+
+    def classificando_atletas(self):
+       while True:
+           instancia = datetime.today()
+           idade_atleta = instancia.year - self.ano 
+
+           print("\x1b[31mCLASSIFICANDO ATLETA...\x1b[0m")
+           time.sleep(3)
+
+           if idade_atleta < 9:
+              print(f'O atleta tem {idade_atleta} anos!')
+              print(f"Categoria:\x1b[33mMIRIN\x1b[0m")
+              break
+           
+           elif idade_atleta > 9 and idade_atleta <= 14:
+               print(f'O atleta tem {idade_atleta} anos!')
+               print(f"Categoria:\x1b[33mINFANTIL\x1b[0m")
+               break
+
+           elif idade_atleta > 14  and idade_atleta <= 19:
+              print(f'O atleta tem {idade_atleta} anos!')
+              print(f"Categoria:\x1b[33mJUNIOR\x1b[0m")
+              break
+           
+           elif idade_atleta > 19 and idade_atleta <= 25:
+              print(f'O atleta tem {idade_atleta} anos!')
+              print(f"Categoria:\x1b[33mSÊNIOR\x1b[0m")
+              break
+           
+           else:
+              print(f'O atleta tem {idade_atleta} anos!')
+              print(f"Categoria:\x1b[33mMASTER\x1b[0m")
+              break
+           
+if __name__ == "__main__":
+   classificar = ClassificandoAtletas()
+   classificar.recebendo_dados()
+            
+       
+
+
+
+
+          
+       
+                
+
+             
+

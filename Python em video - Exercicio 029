@@ -1,0 +1,38 @@
+def recebendo_dados():
+    while True:
+        try:
+            velocidade = int(input('QUAL A VELOCIDADE DO CARRO?'))
+        
+    
+            if isinstance(velocidade, int):
+                break
+
+            else:
+                print("\x1b[31m SÃO ACEITO APENAS CARACTERES NUMERICOS!\x1b[0m")
+        
+        except ValueError:
+            print("\x1b[31m SÃO ACEITO APENAS CARACTERES NUMERICOS!\x1b[0m")
+    
+    calculando_multa(velocidade)
+
+def calculando_multa(velocidade):
+    
+    
+    while True:
+
+        if velocidade < 80:
+            print("\x1b[31mPARABENS POR CAMINHAR NA VELOCIDADE SEGURA!\x1b[0m")
+            break
+
+        if velocidade > 80:
+            diferenca = velocidade - 80
+            calculo = 7*diferenca
+            print(f"\x1b[31mVOCÊ ESTA ACIMA DA VELOCIDADE DE SEGURANÇA. MULTADO!\x1b[0m")
+            print(f"\x1b[31mVOCÊ DEVE PAGAR UMA MULTA DE\x1b[0m \x1b[33mR${calculo}\x1b[0m")
+            print("\x1b[33mTENHA UM BOM DIA, DIRIJA COM SEGURANÇA!\x1b[0m")
+            break
+
+recebendo_dados()
+
+
+

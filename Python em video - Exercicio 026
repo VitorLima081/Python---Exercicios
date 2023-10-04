@@ -1,0 +1,35 @@
+def recebendo_dados ():
+
+    while True:
+
+        try:
+            nome = str(input('Digite seu nome:')).lower()
+            if nome.isalpha():
+                break
+                
+
+            else:
+                print('Caracteres especiais e espaço vazio nãosão aceitos!')
+
+        except ValueError:
+            print('Verifique o erro e tende novamente. Só são aceitos caracteres relacionados a letras!')   
+
+    analisando_string(nome)
+
+
+def analisando_string(nome):
+    contador = 0
+    partindo = nome.split()
+    print(partindo)
+    
+    if 'a' in partindo:
+        contador +=1
+        print(contador)
+
+
+
+
+
+
+
+recebendo_dados()

@@ -1,0 +1,30 @@
+def recebendo_dados ():
+    while True:
+        try:
+            valor = float(input('Digite o seu salario atual:'))
+
+            if isinstance(valor, float):
+                break
+
+        except ValueError:
+            print("Digite caracteres numericos!")    
+
+    calculando_aumento(valor)
+
+def calculando_aumento(valor):
+    salario = 1250
+    menor = (valor*10) /100 + valor
+    maior = (valor*15) /100 + valor
+    while True:
+        if valor <= salario:
+            print(f"\x1b[31mSeu salario será R${maior}\x1b[0m")
+            break
+
+        else:
+            print(f"\x1b[31mSeu salario será R${menor}\x1b[0m")    
+            break
+
+recebendo_dados()    
+
+
+

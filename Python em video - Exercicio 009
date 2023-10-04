@@ -1,0 +1,12 @@
+def calcular_tabuada():
+    valor = int(input('Digite o valor para acessar sua tabuada:'))
+    valores = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    for elemento in valores:
+        calculo = valor * elemento
+        print(f'{valor} x {elemento} = {calculo}')
+
+calcular_tabuada()    
+
+
+
+   

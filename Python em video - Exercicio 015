@@ -1,0 +1,22 @@
+def aluguel_carros ():
+
+    while True:
+        try:
+            kilometros = float(input('Quantos KM o carro percorreu:'))
+            dias = int(input('Quantos dias o carro foi alugado:'))
+            break
+        except ValueError:
+            print('Digite os campos coma as informações solicitadas de forma correta!')
+
+
+    custo_km = kilometros*0.15
+    custo_dias = dias*60
+    custo_total = custo_dias+custo_km
+
+    print(f'Custo por kilometragem R${round(custo_km,2)}')
+    print('-----------------------------------')
+    print(f'Custo por dias alugados: R${round(custo_dias,2)}')
+    print('-----------------------------------')
+    print(f'Custo total: R${round(custo_total,2)}')
+
+aluguel_carros()

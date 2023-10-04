@@ -1,0 +1,15 @@
+def celcius_fahrenheit ():
+
+    while True:
+        try:
+            graus = float(input('Digite a temperatura pra conversão: °'))
+            break
+
+        except ValueError:
+            print('Digite a temperatura de forma correta! (ex:32)')
+
+    calculo = (graus*9/5) + 32
+    print(f'A temperatura de {graus}°C para fahrenheit é: {calculo}°F')
+
+
+celcius_fahrenheit()

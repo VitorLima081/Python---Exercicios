@@ -1,0 +1,48 @@
+import time
+import random
+def recebendo_dados():
+    print("\x1b[34mVOU PENSAR EM UM NUMERO DE 0 A 5. TENTE ADIVINHAR...\x1b[0m")
+    time.sleep(2)
+    
+    
+    while True:
+        
+        try:
+
+            
+            numero = int(input('Em que numero eu pensei?'))
+            
+            if isinstance(numero, int):
+                break
+
+            else:
+                print('Verifique sua resposta. Só são aceito caracteres em numeros!')
+
+        except ValueError:
+            print('Por favor digite um numero valido...')        
+
+    criando_sorteio(numero)
+
+def criando_sorteio(numero):
+    ordem_sorteio = []
+    ordem_sorteio = [i for i in range(1, 5 +1)]
+    sorteio = random.choice(ordem_sorteio)
+    print("\x1b[31mPROCESSANDO...\x1b[0m")
+    time.sleep(3)
+    while True:
+        if numero == sorteio:
+            print('Você acertou, eu perdi ):')
+            break
+
+        else:
+            print(f'Você perdeu meu freguês. Eu pensei em: {sorteio}')    
+            break
+    
+
+recebendo_dados()    
+
+
+
+
+
+
