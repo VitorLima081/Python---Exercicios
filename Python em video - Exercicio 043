@@ -1,0 +1,68 @@
+import time
+
+class CalculadoraImc:
+    def __init__(self):
+        pass
+
+    def recebendo_dados(self):
+        while True:
+            try:
+                print('-=' * 20)
+                print("\x1b[31mSEJA BEM VINDO(A) À CALCULADORA IMC\x1b[0m")
+                print('-=' *20)
+                
+                self.peso = float(input('Digite o seu peso atual:'))
+                self.altura = float(input('Digite a sua altura atual:'))
+
+                if isinstance(self.peso, float) and isinstance(self.altura, float):
+                    break
+
+            except ValueError:
+                print("\x1b[31m !ERRO! SÃO ACEITO APENAS CARACTERES NUMERICOS !ERRO!\x1b[0m")
+
+
+        self.calculando_imc()
+
+    def calculando_imc(self):
+
+        imc = self.peso / (self.altura** 2)
+        print("\x1b[33mPROCESSANDO...\x1b[0m")
+        time.sleep(3)
+        while True:
+
+            if imc < 18.8:
+                print(f"\x1b[31mSeu ICM atual é:{round(imc, 1)}!\x1b[0m")
+                print("\x1b[31mVocê esta ABAIXO do peso ideal!\x1b[0m")
+                break
+
+            elif imc >= 18.5 and imc <= 25:
+                print(f"\x1b[31mSeu ICM atual é:{round(imc,1)}!\x1b[0m")
+                print("\x1b[31mVocê esta no PESO IDEAL!\x1b[0m")
+                break
+
+            elif imc > 25 and imc < 30:
+                print(f"\x1b[31mSeu ICM atual é:{round(imc,1)}!\x1b[0m")
+                print("\x1b[31mVocê esta em SOBREPESO!\x1b[0m")
+                break
+
+            elif imc >= 30 and imc < 40:
+                print(f"\x1b[31mSeu ICM atual é:{round(imc,1)}!\x1b[0m")
+                print("\x1b[31mVocê esta na OBESIDADE!\x1b[0m")
+                break
+
+            else:
+                print(f"\x1b[31mSeu ICM atual é:{round(imc,1)}!\x1b[0m")
+                print("\x1b[31mVocê esta em OBESIDADE MORBIDA!\x1b[0m")
+                break
+
+
+if __name__ == "__main__":
+    calcpeso = CalculadoraImc()
+    calcpeso.recebendo_dados()
+
+    
+                    
+            
+
+
+

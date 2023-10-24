@@ -1,0 +1,53 @@
+class PA():
+    def __init__(self):
+        pass
+
+    def recebendo_numeros(self):
+        while True:
+            try:
+                print('=-' *20)
+                print("\x1b[33m- VAMOS DESCOBRIR O PRIMO?! -\x1b[0m")
+                print('=-' *20)
+               
+                self.n = int(input('Digite o numero:'))
+
+                if self.n < 1:
+                    print("\x1b[33m!OPA! COMEÇAMOS DAQUI... NUMEROS MENOS DO QUE 2 NÃO SÃO PRIMOS !OPA!\x1b[0m")    
+                    
+                if isinstance(self.n, int):
+                    break
+
+            except ValueError:
+                print("\x1b[33m!ERRO! SÃO ACEITO APENAS VALORES NUMERICOS !ERRO\x1b[0m")    
+
+        self.analisando()
+
+    def analisando(self):
+        divisao = self.n /2
+        if self.n %2 == 0:
+         print('O NUMERO NÃO É PRIMO!')
+        
+        
+        
+
+
+       
+           
+    def progressao(self):
+        self.lista_real = []
+        for elemento in self.criando_numeros:
+         valores =  self.termo + (elemento - self.termo) * self.razao
+         self.lista_real.append(valores)
+
+        self.printar() 
+
+    def printar(self):
+        dez_elementos = self.lista_real[1:11]
+        print(dez_elementos) 
+
+              
+
+
+if __name__ == "__main__":   
+    referencia = PA()
+    referencia.recebendo_numeros()

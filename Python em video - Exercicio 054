@@ -1,0 +1,52 @@
+from datetime import datetime
+import time
+
+class AnalisandoIdades():
+    def __init__(self):
+        pass
+
+    def recebendo_numeros(self):
+        numeros = [i for i in range(1, 7 +1 )]
+        self.idades = []
+        while True:
+            try:
+                print('=-' *20)
+                print("\x1b[33m- SEJA BEM VINDO ANALISE DE MAIOR IDADE -\x1b[0m")
+                print('=-' *20)
+                numeros = [i for i in range(1, 7 +1 )]
+                for elemento in numeros:
+                    self.valores = int(input(f'Digite a {elemento}º idade: {elemento}/7:'))
+                    self.idades.append(self.valores)
+
+                if isinstance(self.valores, int):
+                    break
+
+            except ValueError:
+                print("\x1b[33m!ERRO! SÃO ACEITO APENAS VALORES NUMERICOS !ERRO! ]")    
+
+        self.analisando()
+
+    def analisando(self):
+        print("\x1b[31mANALISANDO DADOS...\x1b[0m")
+        time.sleep(3)
+        maior_idade = []
+        menor_idade = []
+        data_atual = datetime.today()
+        for elemento in self.idades:
+            menor = data_atual.year - elemento
+            if menor > 18:
+                maior_idade.append(elemento)
+                quant_maior = len(maior_idade)
+
+            if menor < 18:
+                menor_idade.append(elemento)    
+                quant_menor = len(menor_idade)
+
+        print(f"\x1b[31m{quant_maior}\x1b[0m pessoas são maior de idade!")    
+        print(f"\x1b[31m{quant_menor}\x1b[0m pessoas são menor de idade!")  
+        
+            
+if __name__ == "__main__":   
+    referencia = AnalisandoIdades()
+    referencia.recebendo_numeros()
+

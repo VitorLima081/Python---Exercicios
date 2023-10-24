@@ -1,0 +1,29 @@
+import math
+class CalculandoFatorial:
+    def __init__(self):
+        pass
+
+    def recebendo_dados(self):
+        while True:
+            try:
+                print("\x1b[33mBEM VINDO A CALCULADORA FATORIAL\x1b[0m")
+                self.valor = int(input('Digite o valor:'))
+
+                if isinstance(self.valor, int):
+                    break
+
+                else:
+                    raise ValueError
+
+            except ValueError:
+                print("\x1b[33m!ERRO! SÃO ACEITOS APENAS CARACTERES NUMERICOS !ERRO!\x1b[0m")
+
+        self.calculando_fatorial()
+
+    def calculando_fatorial(self):
+        sequencia = [i for i in range(1, self.valor +1)]
+        sequencia_reverse = reversed(sequencia)
+        fatorial = math.factorial(self.valor)
+        multiplicacao = ' x '.join(map(str, sequencia_reverse))  
+
+        print(f"\x1b[33mO fatorial de {self.valor}! é: {multiplicacao} = {fatorial}")

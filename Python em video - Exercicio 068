@@ -1,0 +1,56 @@
+import time
+class TabuadaMaisCompleta():
+    def __init__(self):
+        pass
+
+    def recebendo_valores(self):
+        print('=-' *20)
+        print("\x1b[35mBEM VINDA(O) A TABUADA\x1b[0m")
+        print('=-' *20)
+        while True:
+            try:
+
+                self.valor = int(input('QUER VER A TABUADA DE QUAL VALOR:'))
+
+                if isinstance(self.valor, int):
+                    break
+
+                else:
+                    raise ValueError
+
+            except ValueError:
+                print("\x1b[35m!ERRO! SÃO ACEITO APENAS CARACTERES NUMERICOS !ERRO!\x1b[0m")
+
+        self.analisando_dados()
+
+    def new_value(self):
+        self.valor = int(input('QUER VER A TABUADA DE QUAL VALOR:'))
+        self.analisando_dados()
+    
+    def analisando_dados(self):
+        while True:
+            
+            print("\x1b[33mCALCULANDO VALORES...\x1b[0m")
+            time.sleep(2)
+            numeros = [i for i in range(1, 10 + 1)]
+            for elemento in numeros:
+                multiplicacao = self.valor * elemento
+                print(f"{self.valor} x {elemento} = {multiplicacao}")
+
+            self.novos_valores = input("Quer calcular uma tabuada com outro valor? [sim/nao]")  
+
+            if self.novos_valores == 'sim':
+                self.new_value()
+                
+
+            else:
+                print('Obrigado por ultilizar nosso programa, até breve!')
+                quit()    
+
+
+
+if __name__ == "__main__":
+    referencia  = TabuadaMaisCompleta()
+    referencia.recebendo_valores()
+    referencia.new_value()
+

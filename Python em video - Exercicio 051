@@ -1,0 +1,46 @@
+class PA():
+    def __init__(self):
+        pass
+
+    def recebendo_numeros(self):
+        while True:
+            try:
+                print('=-' *20)
+                print("\x1b[33m- SEJA BEM VINDO A PROGRESSÃO ARITMETICA -\x1b[0m")
+                print('=-' *20)
+               
+                self.termo = int(input('Digite o 1º termo:'))
+                self.razao = int(input('Digite a razão:'))
+                
+                
+
+                if isinstance(self.termo, int) and isinstance(self.razao, int):
+                    break
+
+            except ValueError:
+                print("\x1b[33m!ERRO! SÃO ACEITO APENAS VALORES NUMERICOS !ERRO!\x1b[0m")    
+
+        self.analisando()
+
+    def analisando(self):
+        self.criando_numeros = [i for i in range(self.termo, self.termo+20+1)]
+        self.progressao()
+           
+    def progressao(self):
+        self.lista_real = []
+        for elemento in self.criando_numeros:
+         valores =  self.termo + (elemento - self.termo) * self.razao
+         self.lista_real.append(valores)
+
+        self.printar() 
+
+    def printar(self):
+        dez_elementos = self.lista_real[1:11]
+        print(dez_elementos) 
+
+              
+
+
+if __name__ == "__main__":   
+    referencia = PA()
+    referencia.recebendo_numeros()

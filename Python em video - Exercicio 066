@@ -1,0 +1,57 @@
+import time
+
+
+class AnalisandoValores():
+    def __init__(self):
+        pass
+
+    def recebendo_valores(self):
+        print('=-' *20)
+        print("\x1b[35mANALISANDO VALORES\x1b[0m")
+        print('=-' *20)
+        self.valores  = []
+        while True:
+            
+            try:
+                self.valor = int(input("Digite um numero:"))
+                self.valores.append(self.valor)
+                self.duvida = input("Você quer continuar? [S/N]").lower()
+
+                if self.duvida != 'n' and self.duvida != 's':
+                    print("\x1b[33m!ERRO! RESPONDA COM S OU N !ERRO!\x1b[0m") 
+                
+                elif self.duvida == 'n':
+                    break
+              
+            except ValueError:
+                print("\x1b[33m!ERRO! SÃO ACEITO APENAS CARACTERES NUMERICOS !ERRO!\x1b[0m")    
+
+        self.analisando_valores()
+
+    def analisando_valores(self):
+        print('-' *20)
+        print("\x1b[35mAGUARDE...\x1b[0m")
+        time.sleep(2)
+        print('-' *20)
+
+        quant = len(self.valores)
+        media = sum(self.valores) /quant
+        maior = max(self.valores)
+        menor = min(self.valores)
+
+        print(f"\x1b[35mVocê digitou {quant} valores")
+        print(f"A media dos valores é {media}")
+        print(f"O maior valor é {maior}")
+        print(f"O menor valor é {menor}\x1b[0m")
+        
+
+
+if __name__ == "__main__":
+    referencia = AnalisandoValores()
+    referencia.recebendo_valores()
+
+
+                
+
+
+

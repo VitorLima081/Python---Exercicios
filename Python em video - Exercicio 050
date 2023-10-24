@@ -1,0 +1,46 @@
+class SomaDosPares():
+    def __init__(self):
+        pass
+
+    def recebendo_numeros(self):
+        numeros = [i for i in range(1, 6 +1 )]
+        self.pares = []
+        while True:
+            try:
+                print('=-' *20)
+                print("\x1b[33m- SEJA BEM VINDO SOMA DOS PARES EM PYTHON -\x1b[0m")
+                print('=-' *20)
+                numeros = [i for i in range(1, 6 +1 )]
+                for elemento in numeros:
+                    self.valores = int(input(f'Digite o {elemento}º valor:'))
+                    self.pares.append(self.valores)
+
+                if isinstance(self.valores, int):
+                    break
+
+            except ValueError:
+                print("\x1b[33m!ERRO! SÃO ACEITO APENAS VALORES NUMERICOS !ERRO! ]")    
+
+        self.analisando()
+
+    def analisando(self):
+        self.pares_real = []
+        for elemento in self.pares:
+            if elemento %2 == 0:
+                self.pares_real.append(elemento)
+
+        self.somando_valores()
+
+    def somando_valores(self):
+        soma = sum(self.pares_real)   
+        print(f"\x1b[33mA SOMA DOS VALORES PARES É: {soma}")     
+
+if __name__ == "__main__":   
+    referencia = SomaDosPares()
+    referencia.recebendo_numeros()
+
+
+
+
+
+

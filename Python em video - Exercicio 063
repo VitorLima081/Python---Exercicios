@@ -1,0 +1,55 @@
+class SequenciaFibonacci():
+
+    def __init__(self):
+        pass
+
+    def recebendo_dados(self):
+        while True:
+            try:
+                
+                self.fatores = int(input('Quantos termos você quer verificar:'))
+
+                if isinstance(self.fatores, int):
+                    break
+
+                else:
+                    raise ValueError
+
+            except ValueError:
+                print("\x1b[31m!ERRO! SÃO ACEITO APENAS CARACTERES NUMERICOS !ERRO!\x1b[0m")   
+
+
+        self.sequencia_fibonacci()
+
+
+    def sequencia_fibonacci(self):
+        start_fib = [0, 1]
+        numeros = 2
+        while self.fatores > numeros:
+            proximo_termo = start_fib[-1] + start_fib[-2]
+            start_fib.append(proximo_termo)
+            numeros += 1
+
+        for elemento in start_fib:
+            print(elemento)    
+         
+
+if __name__ == "__main__":
+    referencia = SequenciaFibonacci()
+    referencia.recebendo_dados()            
+
+
+
+        
+
+
+
+
+                   
+
+
+
+
+
+
+

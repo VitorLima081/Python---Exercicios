@@ -1,0 +1,58 @@
+import time
+import random
+
+
+class JogoAdivinhacao:
+    def __init__(self):
+        pass
+
+
+    def recebendo_dados(self):
+        print("\x1b[34mVOU PENSAR EM UM NUMERO DE 0 A 5. TENTE ADIVINHAR...\x1b[0m")
+        time.sleep(2)
+        
+        
+        while True:
+            
+            try:
+
+                
+                self.numero = int(input('Em que numero eu pensei?'))
+                
+                if isinstance(self.numero, int):
+                    break
+
+                else:
+                    print('Verifique sua resposta. Só são aceito caracteres em numeros!')
+
+            except ValueError:
+                print('Por favor digite um numero valido...')        
+
+        self.criando_sorteio()
+
+    def criando_sorteio(self):
+        contador = 0
+        ordem_sorteio = []
+        ordem_sorteio = [i for i in range(1, 5 +1)]
+        sorteio = random.choice(ordem_sorteio)
+        print("\x1b[31mPROCESSANDO...\x1b[0m")
+        time.sleep(3)
+        while True:
+            if self.numero != sorteio:
+                print("\x1b[34mVOCÊ ERROU, TENTE NOVAMENTE!\x1b[0m")
+                self.numero = int(input('Em que numero eu pensei?'))
+                contador +=1
+                
+            if self.numero == sorteio:
+                print('Você acertou, eu perdi ):')
+                print(f'Você precisou de {contador} tentativas pra acertar!')
+                break
+
+            
+                
+                
+    
+
+if __name__ == "__main__":
+    referencia = JogoAdivinhacao()
+    referencia.recebendo_dados()

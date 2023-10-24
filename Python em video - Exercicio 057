@@ -1,0 +1,37 @@
+class ValidandoDados:
+    def __init__(self):
+        pass
+
+    def recebendo_dados(self):
+        while True:
+
+            try:
+
+                self.validando = input('Digite o sexo da pessoa. (F/M):').lower()
+
+                if self.validando == 'f' or self.validando == 'm':
+                    break
+
+                else:
+                    raise ValueError
+
+            except ValueError:
+                print("\x1b[33m!ERRO! SÃO ACEITO APENAS CARACTERES EM LETRAS, DIGITE F OU M, COMO SOLICITADO !ERRO!\x1b[0m")    
+
+        self.mostrando_dados()
+
+    def mostrando_dados(self):
+        print(self.validando)          
+
+if __name__ == "__main__":
+    referencia =  ValidandoDados()
+    referencia.recebendo_dados()
+
+
+
+  
+
+
+
+
+

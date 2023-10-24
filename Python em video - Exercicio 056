@@ -1,0 +1,61 @@
+import time
+
+class AanalisadorCompleto:
+    def __init__(self):
+        pass
+
+    def recebendo_dados(self):
+        while True:
+            self.pessoas = [()]
+
+            try:
+
+                self.contagem = [i for i in range(1, 4 + 1)]
+                for elemento in self.contagem:
+                    self.nome = str(input(f'Digite o nome da {elemento}º pessoa:'))
+                    self.idade = int(input(f'Digite a idade da {elemento}º pessoa:'))
+                    self.sexo = str(input(f'Digite o sexo da {elemento}º pessoa. (F/M):')).upper()
+                    self.pessoas.append((self.nome, self.idade, self.sexo))
+            
+
+                if isinstance(self.nome, str) and isinstance(self.idade, int) and isinstance(self.sexo, str):
+                    break
+
+            except ValueError:
+                print("\x1b[31m!ERRO! PRENCHA OS CAMPOS COM OS TIPOS DE CARACTERES REFERENTES !ERRO!\x1b[0m")            
+
+        self.analisando_dados()
+
+    def analisando_dados(self):
+        nome_mais_velha = None
+        idade_mais_velha = 0
+        contagem_mulheres = 0
+        
+        idades_media = []
+        self.pessoas.pop(0)
+
+        for pessoas in self.pessoas:
+            nome, idade, sexo = pessoas
+
+            if sexo == 'M' and idade > idade_mais_velha:
+                idade_mais_velha = idade
+                nome_mais_velha = nome
+
+            if sexo == 'F' and idade < 20:
+                contagem_mulheres +=1    
+
+            idades_media.append(idade)    
+
+        media_idade = sum(idades_media) /4
+        print(f"A media de idade das pessoas é: {media_idade}")
+        print(f"O Homem mais velho é {nome_mais_velha} com {idade_mais_velha} anos!")
+        if contagem_mulheres > 1:
+         print(f"Foram contabilizadas {contagem_mulheres} mulheres com menos de 20 anos!")
+
+        else:
+            print(f"Foram contabilizadas {contagem_mulheres} mulher com menos de 20 anos!")
+
+if __name__ == "__main__":   
+    referencia = AanalisadorCompleto()
+    referencia.recebendo_dados()
+    

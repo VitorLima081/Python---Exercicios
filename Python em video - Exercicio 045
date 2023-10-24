@@ -1,0 +1,70 @@
+import time
+import random
+
+class JokenPo():
+    def __init__(self):
+        pass
+
+    def recebendo_dados(self):
+
+        while True:
+            try:
+                print('-=' * 20)
+                print("\x1b[31mSEJA BEM VINDO AO JOKEN, VAMOS NOS DIVERTIR!\x1b[0m")
+                print('-=' *20)
+
+                print('PEDRA [0]')
+                print('PAPEL [1]')
+                print('TESOURA [2]')
+
+                self.valor = int(input('Qual personagem você quer invocar?! Digite a numeração como referencia:'))
+
+                if self.valor > 2:
+                    print("\x1b[33m!ERRO! ESCOLHA OS VALORES REFERENCIADOS AOS PERSONAGENS ACIMA !ERRO!]")
+
+                if isinstance(self.valor, int):
+                    break
+
+            except ValueError:
+                print("\x1b[33m!ERRO! SÃO ACEITO APENAS CARACTERES NUMERICOS !ERRO!]")
+
+        self.jogando_cartas() 
+
+    def jogando_cartas(self):
+        cartas = ['PEDRA', 'PAPEL', 'TESOURA']
+        sorteio = random.choice(cartas)
+        print('JO...')
+        time.sleep(2)
+        print('KEN...')
+        time.sleep(2)
+        print('PO!!')
+
+        
+        while True:
+
+            if self.valor == 0 and sorteio == 'TESOURA' or self.valor == 2 and sorteio == 'PAPEL' or self.valor == 1 and sorteio == 'PEDRA':
+                     print(f"PARABENS... EU PERDI, JOGUEI {sorteio}")
+                     break
+
+            elif self.valor == 2 and sorteio == 'PEDRA' or self.valor == 1 and sorteio == 'TESOURA' or self.valor == 0 and sorteio == 'PAPEL':
+                     print(f"LOSER... VOCÊ PERDEU,  EU JOGUEI {sorteio}")
+                     break
+
+            else:
+                print(f'O JOGO FOI EMPATE, JOGUEI {self.valor} TAMBÉM!')     
+                break
+
+if __name__ == "__main__":
+    referencia = JokenPo()
+    referencia.recebendo_dados()
+                
+
+            
+
+        
+
+
+
+
+                        
+

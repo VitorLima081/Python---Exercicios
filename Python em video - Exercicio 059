@@ -1,0 +1,96 @@
+import time
+
+class MenuInterativo():
+    def __init__(self):
+        pass
+
+    def recebendo_dados(self):
+        self.maior = []
+        while True:
+            try:
+
+                self.n1 = int(input('Digite o primeiro valor:'))
+                self.maior.append(self.n1)
+                self.n2 = int(input('Digite o segundo valor:'))
+                self.maior.append(self.n2)
+                print('=-' *20)
+                print('[1] SOMAR')
+                print('[2] MULTIPLICAR')
+                print('[3] MAIOR VALOR')
+                print('[4] NOVOS NUMEROS')
+                print('[5] SAIR DO PROGRAMA')
+                print('=-' *20)
+                self.acao = int(input("\x1b[34mO QUE VOCÊ DESEJA FAZER COM OS VALORES?!\x1b[0m"))
+
+                if isinstance(self.n1, int) and isinstance(self.n2, int) and isinstance(self.acao, int):
+                    break
+
+                else:
+                    raise ValueError
+
+            except ValueError:
+                print("\x1b[34m!ERRO! SÃO ACEITO APENAS CARACTERES NUMERICOS !ERRO!\x1b[0m")    
+        
+        self.analisando_dados()
+
+    def novos_valores(self):
+        self.n1 = int(input('Digite o primeiro valor:'))
+        self.maior.append(self.n1)
+        self.n2 = int(input('Digite o segundo valor:'))
+        self.maior.append(self.n2)
+        print('=-' * 20)
+        print('[1] SOMAR')
+        print('[2] MULTIPLICAR')
+        print('[3] MAIOR VALOR')
+        print('[4] NOVOS NUMEROS')
+        print('[5] SAIR DO PROGRAMA')
+        print('=-' * 20)
+        self.acao = int(input("\x1b[34mO QUE VOCÊ DESEJA FAZER COM OS VALORES?!\x1b[0m"))
+        
+        self.analisando_dados()
+
+    
+    def analisando_dados(self):
+        maior_numero = max(self.maior)
+        somar = self.n1 + self.n2
+        multiplicar = self.n1 * self.n2
+        
+
+        while True:
+            if self. acao == 1:
+                print(f"\x1b[34mA SOMA DOS VALORES É {somar}\x1b[0m")
+
+            elif self.acao == 2:
+                print(f"\x1b[34mA MULTIPLICAÇÃO DOS VALORES É {multiplicar}\x1b[0m")
+
+            elif self.acao == 3:
+                print(f"\x1b[34mA O MAIOR VALOR É {maior_numero}\x1b[0m")
+
+            elif self.acao == 4:
+                self.novos_valores()
+                
+
+            elif self.acao == 5:
+                print(f"\x1b[34mFECHANDO...\x1b[0m")
+                time.sleep(2)
+                print(f"\x1b[34mOBRIGADO POR ULTILIZAR NOSSO PROGRAMA, ATE A PROXIMA!\x1b[0m")
+                quit()
+
+
+            print('=-' * 20)
+            print('[1] SOMAR')
+            print('[2] MULTIPLICAR')
+            print('[3] MAIOR VALOR')
+            print('[4] NOVOS NUMEROS')
+            print('[5] SAIR DO PROGRAMA')
+            print('=-' * 20)
+            self.acao = int(input("\x1b[34mO QUE VOCÊ DESEJA FAZER COM OS VALORES?!\x1b[0m"))   
+
+if __name__ == "__main__":
+    referencia = MenuInterativo()
+    referencia.recebendo_dados()
+                
+                
+
+
+        

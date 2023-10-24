@@ -1,0 +1,25 @@
+class Palindromo():
+    def __init__(self):
+        pass
+
+    def recebendo_dados(self):
+        self.nome = str(input('Digite uma palavra:')).upper()
+
+
+        self.analisando_dados()
+
+    def analisando_dados(self):
+        reverso_string = ''.join(reversed(self.nome))
+        if reverso_string == self.nome:
+            print('e um palindromo')
+
+        else:
+            print('nao é um palindromo')    
+        
+        print(reverso_string)
+        
+
+    
+if __name__ == "__main__":   
+    referencia = Palindromo()
+    referencia.recebendo_dados()

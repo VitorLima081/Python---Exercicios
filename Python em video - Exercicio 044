@@ -1,0 +1,78 @@
+import time
+
+class CalculoPagamento:
+    def __init__(self):
+        pass
+
+    def recebendo_dados(self):
+        while True:
+            try:
+                print('-=' * 20)
+                print("\x1b[31mSEJA BEM VINDO(A) À CALCULADORA DE JUROS\x1b[0m")
+                print('-=' *20)
+                
+                self.valor = float(input('- Digite o valor do produto: R$'))
+                print('-=' * 20)
+                print("\x1b[31mESCOLHA A FORMA DE PAGAMENTO!\x1b[0m")
+                print('-=' *20)
+                print('- A VISTA - DINHEIRO/CHEQUE (10% DE DESCONTO) [1]')
+                print('- A VISTA - CARTÃO (5% DE DESCONTO) [2]')
+                print('- PARCELADO - CARTÃO 1/2X SEM JUROS! [3]')
+                print('- PARCELADO - CARTÃO 3/12X COM JUROS!(20%) [4]')
+                print('-=' *20)
+                self.pagamento = int(input('- Digite o numero referente a condição de pagamento:'))
+
+                if self.pagamento == 3:
+                    self.referencia = int(input('Em uma ou duas vezes? (1/2)'))
+                    break
+
+                if self.pagamento == 4:
+                    self.maisdeduas = int(input('Em quantas vezes? (3 até 12)'))
+                    break
+                
+                if self.pagamento > 4:
+                    print("\x1b[31m!ERRO! ESCOLHA APENAS OS NUMEROS REFERENCIADOS NO ENUNCIADO !ERRO!\x1b[0m")
+                
+                else:
+                    isinstance(self.valor, float) and isinstance(self.pagamento, int)
+                    break
+
+            except ValueError:
+                print("\x1b[31m!ERRO! VERIFIQUE SE AS INFORMAÇÕES DIGITADAS CONDIZEM COM OS CARACTERES SOLICITADOS !ERRO!\x1b[0m")
+
+
+        self.calculando_valor()
+
+    def calculando_valor(self):
+        print("\x1b[33mPROCESSANDO INFORMAÇÕES...\x1b[0m")
+        time.sleep(3)
+
+        while True:
+            if self.pagamento == 1:
+                dez_porcento = (self.valor*10) /100 - self.valor
+                print("\x1b[30mCom essa forma de pagamento você ganhou 10% de desconto\x1b[0m")
+                print(f"\x1b[30mO produto que custava R${self.valor} ficará por R${abs(dez_porcento)}\x1b[0m")
+                break
+
+            elif self.pagamento == 2:
+                cinco_porcento = (self.valor*5) /100 - self.valor
+                print("\x1b[30mCom essa forma de pagamento você ganhou 5% de desconto\x1b[0m")
+                print(f"\x1b[30mO produto que custava {self.valor} ficará por R${abs(cinco_porcento)}\x1b[0m")
+                break
+
+            elif self.pagamento == 3:
+                 duas_parcelas = self.valor/self.referencia
+                 print("\x1b[30mCom essa forma de pagamento você não obtem desconto.\x1b[0m")
+                 print(f"\x1b[30mO produto será pago em {self.referencia}x, segue o valor das parcelas: {round(duas_parcelas)} \x1b[0m")
+                 break
+
+            elif self.pagamento == 4:
+                juros_parcelas = (self.valor*20) /100 + self.valor / self.maisdeduas
+                print("\x1b[30mCom essa forma de pagamento o produto tem acrescimo de 20% sob o valor!\x1b[0m")
+                print(f"\x1b[30mO produto será dividido em {self.maisdeduas}x, segue o valor das parcelas: R${round(juros_parcelas)} \x1b[0m")
+                break
+
+
+if __name__ == "__main__":
+    juros = CalculoPagamento()
+    juros.recebendo_dados()

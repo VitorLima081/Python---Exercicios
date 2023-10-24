@@ -1,0 +1,43 @@
+class NumeroComFlag():
+    def __init__(self):
+        pass
+
+    def recebendo_valores(self):
+        self.valores_reais = []
+        print('=-' *20)
+        print("\x1b[33m BEM VINDO A SOMA DE VALORES\x1b[0m")
+        print('=-' *20)
+        while True:
+            try:
+                print("\x1b[31mDIGITE 999 PRA ENCERRAR O PROGRAMA\x1b[0m")
+                self.valores = int(input('Digite um valor:'))
+                self.valores_reais.append(self.valores)
+
+                if self.valores == 999:
+                    break
+
+                if isinstance(self.valores, int):
+                    pass
+                
+                else:
+                    raise ValueError
+
+            except ValueError:
+                print("\x1b[35m!ERRO! SÃO ACEITO APENAS CARACTERES NUMERICOS !ERRO!\x1b[0m")   
+
+        self.analisando_valores()
+
+    def analisando_valores(self):
+        valores_lista = len(self.valores_reais)
+        soma_valores = sum(self.valores_reais)
+        print(f"\x1b[33mA soma dos {valores_lista} valores é {soma_valores}\x1b[0m")
+
+
+
+if __name__ == "__main__":
+    referencia = NumeroComFlag()
+    referencia.recebendo_valores()
+
+
+
+

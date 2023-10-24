@@ -1,0 +1,65 @@
+class AnalisandoDados():
+    def __init__(self):
+        pass
+
+    def recebendo_dados(self):
+        self.dados = []
+    
+        while True:
+            try:
+                self.idade = int(input('Qual a idade do cidadão:'))
+                self.sexo = input('Qual o sexo do cidadão: [F/M]').lower()
+                if self.sexo in ['f', 'm']:
+                    pass
+                else:
+                    raise ValueError
+                
+                self.dados.append((self.idade, self.sexo))
+                self.continua = input('Quer iniciar um novo cadastro? [sim/nao]').lower()
+
+                if self.continua in ['sim','nao']:
+                    pass
+                else:
+                    raise ValueError
+                
+                if self.continua == 'sim':
+                    pass
+                else:
+                    break
+
+            except ValueError:
+                print("\x1b[33m!ERRO! RESPONDA OS PERGUNTAS COM AS PALAVRAS DESCRITAS !ERRO!\x1b[0m")    
+
+        self.analisando_dados()
+
+    def analisando_dados(self):
+        self.maior_idade = 0
+        self.numero_homens = 0
+        self.mulheres_maior = 0
+        for tupla in self.dados:
+                idade, sexo = tupla
+                if isinstance(idade, int):
+                    if idade > 18:
+                     self.maior_idade +=1
+                     if sexo == 'm':
+                      self.numero_homens +=1
+                      if sexo == 'm' and idade > 20:
+                          self.mulheres_maior += 1
+
+
+        print(f"\x1b[33m{self.maior_idade} PESSOAS POSSUEM MAIS DE 18 ANOS!")   
+        print(f"\x1b[33m{self.numero_homens} HOMENS COMPÕE O CADASTRO!")  
+        print(f"\x1b[33m{self.mulheres_maior} MULHERES COM MAIS DE 20 ANOS COMPÕE O CADASTRO!")   
+
+            
+
+
+if __name__ == "__main__":
+    referencia = AnalisandoDados()
+    referencia.recebendo_dados()
+
+
+
+
+
+
