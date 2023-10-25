@@ -1,0 +1,90 @@
+import time
+class CaixaEletronico():
+    def __init__(self):
+        pass
+
+    def recebendo_dados(self):
+        print('=-' *20)
+        print("\x1b[1m\x1b[31m| BANCO PYTHON MONEY |\x1b[0m")
+        print('=-' *20)
+        while True:
+            try:
+                self.saldo = int(input("Quanto você quer sacar:R$"))
+
+                if isinstance(self.saldo, int):
+                    break
+
+
+            except ValueError:
+                print("\x1b[33m!ERRO! SÃO ACEITO APENAS CARACTERES NUMERICOS !ERRO!\x1b[0m")    
+
+        self.analisando_saldo()
+
+    def analisando_saldo(self):
+        print("\x1b[33mCONTANDO NOTAS...\x1b[0m")
+        time.sleep(2)
+        self.lista = [
+            (50, 'cinquenta'),
+            (20, 'vinte'),
+            (10, 'dez'),
+            (1, 'um')
+        ]
+        self.soma = 0
+        self.soma_cinquenta = 0
+        self.soma_vinte = 0
+        self.soma_dez = 0
+        self.soma_um = 0
+        self.conta_total = []
+        for elemento in self.lista:
+            valor, nome = elemento
+            while self.soma + valor <= self.saldo:
+                self.soma += valor
+                if nome == 'cinquenta':
+                    self.soma_cinquenta +=1
+                elif nome == 'vinte':
+                    self.soma_vinte+=1
+                elif nome == 'dez':
+                    self.soma_dez +=1
+                elif nome == 'um':
+                    self.soma_um += 1
+                if self.soma == self.saldo:
+                    break    
+
+        if self.soma_cinquenta > 1:
+            print(f"Foram necessarias \x1b[31m{self.soma_cinquenta}\x1b[0m notas de R$ 50 para sacar o valor!")
+     
+        if self.soma_vinte > 1:
+            print(f"Foram necessarias \x1b[31m{self.soma_vinte}\x1b[0m notas de R$20 para sacar o valor!")
+     
+        if self.soma_dez > 1:
+            print(f"Foram necessarias \x1b[31m{self.soma_dez}\x1b[0m notas de R$ 10 para sacar o valor!")
+    
+        if self.soma_um > 1:
+            print(f"Foram necessarias \x1b[31m{self.soma_um}\x1b[0m notas de R$ 1 para sacar o valor!")
+       
+
+
+if __name__ == "__main__":
+    referencia = CaixaEletronico()
+    referencia.recebendo_dados()                   
+                            
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+

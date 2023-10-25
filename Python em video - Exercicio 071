@@ -1,0 +1,75 @@
+import time
+class AnalisandoCompras():
+    def __init__(self):
+        pass
+
+    def recebendo_dados(self):
+        self.lista_produtos = []
+        self.produto_barato = None
+        self.preco_barato = 0
+        print('=-' *20)
+        print("\x1b[33mBEM VINDO AO CAIXA DA ELETRO JONH\x1b[0m")
+        print('=-' *20)
+        while True:
+            try:
+                self.produto = input('Qual o produto:')
+                if self.produto == '':
+                    raise ValueError
+                
+                self.valor = float(input('Qual o valor do produto: R$'))
+                if self.valor > 0:
+                    self.preco_barato = self.valor
+                    self.produto_barato = self.produto
+                    if self.valor < self.preco_barato:
+                        self.preco_barato = self.valor
+                        self.produto_barato = self.produto 
+                
+                self.lista_produtos.append((self.produto, self.valor))
+                self.cont_cadastro = input('Você quer registrar outro produto? [sim/nao]').lower()
+
+                if self.cont_cadastro in ['sim', 'nao']:
+                    pass
+
+                else:
+                    raise ValueError
+                
+                if self.cont_cadastro == 'nao':
+                    break
+
+            except ValueError:
+                print("\x1b[33m!ERRO! DIGITE VALORES NOS CAMPOS COM OS CARACTERES SOLICITADOS !ERRO!\x1b[0m")    
+
+        self.analisando_valores()
+
+    def analisando_valores(self):
+        print("\x1b[33mANALISANDO COMPRAS...\x1b[0m")
+        time.sleep(2)
+        self.valor_total = []
+        self.produtos_1000 = []
+        
+    
+        for elemento in self.lista_produtos:
+            produto, preco = elemento
+            if preco > 0:
+                self.valor_total.append(preco)
+                if preco > 1000:
+                    self.produtos_1000.append((elemento, preco))  
+                    
+                   
+                         
+        
+        print(f"O valor TOTAL da compra é \x1b[35mR${sum(self.valor_total)}\x1b[0m")
+        print(f"\x1b[33m{len(self.produtos_1000)}\x1b[0m possuem mais de R$ 1000")
+        print(f"O produto mais barato é \x1b[35m{self.produto_barato}\x1b[0m custando \x1b[33m{self.preco_barato}\x1b[0m")                    
+
+
+
+
+if __name__ == "__main__":
+    referencia = AnalisandoCompras()
+    referencia.recebendo_dados()
+
+
+
+
+
