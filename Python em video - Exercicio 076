@@ -1,0 +1,58 @@
+class AnalisandoTuplas():
+    def __init__(self):
+        pass
+
+    def recebendo_dados(self):
+        self.valores = []
+        while True:
+            try:
+                self.numeros = [i for i in range(1, 4 + 1)]
+                for elemento in self.numeros:
+                    self.dados = int(input(f'Digite o {elemento}º valor:'))
+                    self.valores.append(self.dados)
+
+                if isinstance(self.dados, int):
+                    break    
+
+
+            except ValueError:
+                print("\x1b[33m!ERRO! SÃO ACEITO APENAS CARACTERES NUMERICOS !ERRO!\x1b[0m") 
+
+        self.analisando_tupla() 
+
+    def analisando_tupla(self):
+        self.nove = 0
+        self.pares = []
+        self.posicao = None
+
+
+        for elemento in self.valores:
+            if elemento == 9:
+                self.nove +=1
+
+            elif elemento % 2 == 0: 
+                self.pares.append(elemento)   
+
+            elif elemento == 3:
+                 self.posicao = self.valores.index(3)
+
+
+
+        print(f"O valor 9 apareceu {self.nove} vezes!")
+        
+        if self.posicao:
+            print(f"O numero 3 esta na {self.posicao}!")   
+        else:
+            print("O valor 3 não foi encontrado na lista!")
+
+        if self.pares:
+            print(f"O numeros pares da lista são {self.pares}")
+        else:
+            print("Não existe numeros pares na lista!")                           
+
+if __name__ == "__main__":
+    referencia = AnalisandoTuplas()
+    referencia.recebendo_dados()
+                
+
+

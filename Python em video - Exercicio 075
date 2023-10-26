@@ -1,0 +1,28 @@
+import random
+
+class MaioreMenoTupla():
+    def __init__(self):
+        pass
+
+    def criando_valores(self):
+        self.valores = [i for i in range(1, 1000)]
+        self.analisando_tupla()
+
+    def analisando_tupla(self):
+        self.lista = []
+        self.sorteando = random.choices(self.valores, k=5)
+        self.lista.append(self.sorteando)
+        self.maior_valor = max(self.sorteando)
+        self.menor_valor = min(self.sorteando)
+
+
+
+        print(f"Os numeros sorteados foram \x1b[33m{self.sorteando}\x1b[0m")
+        print(f"O maior valor da lista é: \x1b[31m{self.maior_valor}\x1b[0m")
+        print(f"O menor valor da lista é: \x1b[31m{self.menor_valor}\x1b[0m")
+
+if __name__ == "__main__":
+    referencia = MaioreMenoTupla()
+    referencia.criando_valores()
+
+

@@ -1,0 +1,69 @@
+class AnalisaTupla():
+    def __init__(self):
+        pass
+
+    def criando_tupla(self):
+        self.lista = [
+            (1, 'Botafogo'),
+            (2, 'Bragantino'),
+            (3, 'Flamengo'),
+            (4, 'Palmeiras'),
+            (5, 'Atletico-PR'),
+            (6, 'Atletico-MG'),
+            (7, 'Fluminense'),
+            (8, 'Gremio'),
+            (9, 'Fortaleza'),
+            (10, 'São Paulo'),
+            (11, 'Cuiaba'),
+            (12, 'Cruzeiro'),
+            (13, 'Internacional'),
+            (14, 'Bahia'),
+            (15, 'Corinthians'),
+            (16, 'Goias'),
+            (17, 'Vasco Da Gama'),
+            (18, 'Santos'),
+            (19, 'Coritiba'),
+            (20, 'America-MG')
+        ]
+
+        self.analisando_tupla()
+
+    def analisando_tupla(self):
+        self.primeiros = []
+        self.ultimos = []
+        self.times = []
+        self.cuiaba = None
+        self.posicao_cuiaba = None
+
+        for elemento in self.lista:
+            posicao, time = elemento
+            self.times.append(time)
+            if posicao <= 5:
+                self.primeiros.append(time)
+            elif posicao > 16:
+                self.ultimos.append(time)
+            elif time == 'Cuiaba':
+                self.cuiaba = time 
+                self.posicao_cuiaba = posicao
+        print('=-' *20)
+        print("\x1b[1m\x1b[31mANALISANDO TUPLA\x1b[0m")
+        print('=-' *20)
+        print(f'Os primeiro colocados são: {self.primeiros}') 
+        print('=-' *20)
+        print(f'Os ultimos colocados são: {self.ultimos}')
+        print('=-' *20)
+        print(f'Os times em ordem alfabetica são {sorted(self.times)}') 
+        print('=-' *20)
+        print(f'O {self.cuiaba} esta na {self.posicao_cuiaba}º colocação!')
+        print('=-' *20)
+
+if __name__ == "__main__":
+    referencia = AnalisaTupla()
+    referencia.criando_tupla()
+
+
+
+
+
+
+
