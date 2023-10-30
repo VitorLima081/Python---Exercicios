@@ -1,0 +1,45 @@
+class OrdenandoLista():
+    def __init__(self):
+        pass
+
+    def recebendo_valores(self):
+        self.numeros = [i for i in range(1, 5 + 1)]
+        self.valores = []
+        while True:
+            try:
+                for elemento in self.numeros:
+                    self.valor = int(input(f"Digite {elemento}º valor:"))
+                    if self.valor in self.valores:
+                        print('O VALOR JA ESTA PRESENTE NA LISTA...')
+
+                  
+                    while True:
+                        
+                        if self.valor < 1000:
+                            self.valores.insert(self.valor)
+                            print("VALOR ADICIONADO...")
+                            break
+
+                        elif self.valor > 1000:
+                            self.valores.append(self.valor)  
+                            print("VALOR ADICIONADO...")
+                            break
+                            
+                        
+                if len(self.valores) == 5:
+                        break         
+
+            except ValueError:
+                print("!ERRO! SÃO ACEITO APENAS CARACTERES NUMERICOS !ERRO!")
+
+        self.analisando_dados()
+
+    def analisando_dados(self):
+        print(self.valores)
+
+if __name__ == "__main__":
+    referencia = OrdenandoLista()
+    referencia.recebendo_valores()
+
+
+

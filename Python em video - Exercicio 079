@@ -1,0 +1,46 @@
+import time
+
+class FiltrandoLista():
+    def __init__(self):
+        pass
+
+    def recebendo_valores(self):
+        self.lista = [0]
+        print('=-' *20)
+        print("\x1b[1m\x1b[31mFILTRANDO LISTA EM PYTHON\x1b[0m")
+        print('=-' *20)
+
+        while True:
+            try:
+                self.valor = int(input('Digite um valor:'))
+
+                if self.valor in self.lista:
+                    print("O VALOR JA FOI ADICIONADO A LISTA...")
+                else:
+                    self.lista.append(self.valor)
+                    print("VALOR ADICIONADO COM SUCESSO...")
+
+                time.sleep(2)
+                
+                while True:
+                    self.continuar = input("Quer continuar? [sim/nao]").lower()
+                    if self.continuar in ['sim', 'nao']:
+                        break
+                    else:
+                        print('DIGITE SIM OU NAO')
+
+                if self.continuar == 'nao':
+                    break
+
+            except ValueError:
+                print("!ERRO! SÃO ACEITOS APENAS CARACTERES NUMÉRICOS !ERRO!")
+
+        self.analisando_valores()
+
+    def analisando_valores(self):
+        print(f"\x1b[32mOs valores da lista são {sorted(self.lista)}\x1b[0m")
+
+if __name__ == "__main__":
+    referencia = FiltrandoLista()
+    referencia.recebendo_valores()
+    

@@ -1,0 +1,69 @@
+import time
+
+class ParEImpar():
+    def __init__(self):
+        pass
+
+    def recebendo_dados(self):
+        print('=-' *20)
+        print(("\x1b[33m PAR E IMPAR - PYTHON\x1b[0m"))
+        print('=-' *20)
+        self.valores = []
+        while True:
+            try:
+                self.valor = int(input('Digite um numero:'))
+                self.valores.append(self.valor)
+                self.continuar = input('Você quer adicionar outro valor? [SIM/NAO]').lower()
+                
+                while True:
+                    if self.continuar in ['sim', 'nao']:
+                        break
+
+                    else:
+                        print("\x1b[31m!ERRO! DIGITE SIM OU NAO!\x1b[0m")
+                        self.continuar = input('Você quer adicionar outro valor? [SIM/NAO]').lower()
+                    
+                if self.continuar == 'sim':
+                    pass
+                else:
+                    break
+
+            except ValueError:
+                print("\x1b[31m!ERRO! SÃO ACEITO APENAS CARACTERES NUMERICOS !ERRO!\x1b[0m")    
+
+        self.analisando_lista() 
+
+    def analisando_lista(self):
+        print("\x1b[31mANALISANDO VALORES...\x1b[0m")
+        time.sleep(2)
+       
+        self.par = []
+        self.impar = []
+       
+        for elemento in self.valores:
+            if elemento % 2 == 0:
+                self.par.append(elemento)
+
+            else:
+                self.impar.append(elemento)
+
+        if self.par:
+            print(f"\x1b[33mOS VALORES PARES DA LISTA SÃO: {self.par}\x1b[0m")
+        else:
+            print(f"\x1b[33mA LISTA NÃO POSSUI VALORES PAR\x1b[0m")
+        
+        if self.impar:
+            print(f"\x1b[33mOS VALORES IMPARES DA LISTA SÃO: {self.impar}\x1b[0m")      
+
+        else:
+            print(f"\x1b[33mA LISTA NÃO POSSUI VALORES IMPAR\x1b[0m")
+
+
+
+
+
+
+if __name__ == "__main__":
+    referencia = ParEImpar()
+    referencia = referencia.recebendo_dados()            
+

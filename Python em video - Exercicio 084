@@ -1,0 +1,77 @@
+import time 
+
+class AnalisandoDados():
+    def __init__(self):
+        pass
+
+    def recebendo_dados(self):
+        print('=-' *20)
+        print("\x1b[31mREGISTRANDO USUARIOS - PYTHON\x1b[0m")
+        print('=-' *20)
+        self.usuario = []
+        while True:
+            try:
+                
+                while True:
+                    self.nome = input('Digite o nome do usuario:')
+                    if self.nome == '':
+                        print("\x1b[35m!ERRO! O CAMPO ESTA VAZIO! ERRO!\x1b[0m")
+
+                    else:
+                        break    
+
+                self.peso = float(input('Digite o peso do usuario:'))
+                self.usuario.append((self.nome, self.peso))
+                
+                while True:
+                    self.continuar = input('Você deseja adicionar outro usuario? [SIM/NÃO]').lower()
+
+                    if self.continuar in ['sim', 'nao']:
+                        break
+
+                    else:
+                        print("\x1b[35m!ERRO! RESPONDA COM SIM OU NAO !ERRO!\x1b[0m")
+
+                if self.continuar == 'sim':
+                    pass
+
+                else:
+                    break
+                    
+            except ValueError:
+                print("\x1b[35m!ERRO! SÃO ACEITO APENAS CARACTERES NUMERICOS !ERRO!\x1b[0m")        
+
+        self.analiando_dados()         
+
+    def analiando_dados(self):
+    
+        print('=-' *20)
+        print("\x1b[31mANALISANDO DADOS...\x1b[0m")
+        print('=-' *20)
+        time.sleep(2)
+        quant_usuarios = len(self.usuario)
+        usuario_pesado_peso = 0
+        usuario_pesado_nome = None
+        usuario_leve_peso = float('inf')  
+        usuario_leve_nome = None
+
+    
+        for elemento in self.usuario:
+            usuario, peso = elemento
+            if peso > usuario_pesado_peso:
+                usuario_pesado_peso = peso
+                usuario_pesado_nome = usuario
+            
+            if peso < usuario_leve_peso:
+                usuario_leve_peso = peso
+                usuario_leve_nome = usuario
+
+        print(f"\x1b[33mO cadastro contém {quant_usuarios} usuarios!\x1b[0m")
+        print(f"\x1b[33mO usuario mais PESADO é: {usuario_pesado_nome} com {usuario_pesado_peso}KG!\x1b[0m")
+        print(f"\x1b[33mO usuario mais LEVE é: {usuario_leve_nome} com {usuario_leve_peso}KG!\x1b[0m")
+
+           
+if __name__ == "__main__":
+    referencia = AnalisandoDados()
+    referencia.recebendo_dados()
+

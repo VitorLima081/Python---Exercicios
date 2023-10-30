@@ -1,0 +1,69 @@
+import time
+
+class Matriz():
+    def __init__(self):
+        pass
+
+    def recebendo_dados(self):
+        print('=-' *20)
+        print("\x1b[33mMATRIZ - PYTHON\x1b[0m")
+        print('=-' *20)
+
+        
+        while True:
+            try:
+                self.n0 = int(input('Digite o valor para [0] x [0]:'))
+                self.n1 = int(input('Digite o valor para [0] x [1]:'))
+                self.n2 = int(input('Digite o valor para [0] x [2]:'))
+                self.n3 = int(input('Digite o valor para [1] x [0]:'))
+                self.n4 = int(input('Digite o valor para [1] x [1]:'))
+                self.n5 = int(input('Digite o valor para [1] x [2]:'))
+                self.n6 = int(input('Digite o valor para [2] x [0]:'))
+                self.n7 = int(input('Digite o valor para [2] x [1]:'))
+                self.n8 = int(input('Digite o valor para [2] x [2]:'))
+
+                if isinstance(self.n0, int) and isinstance(self.n1, int) and isinstance(self.n2, int) and isinstance(self.n3, int) and isinstance(self.n4, int) and isinstance(self.n5, int) and isinstance(self.n6, int) and isinstance(self.n7, int) and isinstance(self.n8, int):
+                    break
+
+            except ValueError:
+                print("\x1b[31m!ERRO! SÃO ACEITO APENAS CARACTERES NUMERICOS !ERRO!\x1b[0m")        
+
+
+        self.criando_matriz()
+
+    def criando_matriz(self):
+        print('=-' *20)
+        print("\x1b[31mCRIANDO MATRIZ...\x1b[0m")
+        print('=-' *20)
+        time.sleep(2)
+        self.pares = []
+        self.maior = []
+        
+        Matriz = [
+            [self.n0, self.n1, self.n2],
+            [self.n3, self.n4, self.n5],
+            [self.n6, self.n7, self.n8]
+        ] 
+
+        soma_valores = Matriz[0][2] + Matriz[1][2] + Matriz[2][2]               
+        
+        for mostrar in Matriz:
+            print(mostrar)
+        print('=-' *20)    
+        
+        for linha in Matriz:
+            for elemento in linha:
+                if elemento % 2 == 0:
+                    self.pares.append(elemento)
+            
+        for valor in Matriz[1]:
+            self.maior.append(valor)
+
+        print(f"A soma dos valores da terceira linha é: {soma_valores}")
+        print(f"A soma dos numeros PARES da matriz são: {sum(self.pares)}")
+        print(f"O maior valor da segunda linha é: {max(self.maior)}")
+
+
+if __name__ == "__main__":
+    referencia = Matriz()
+    referencia.recebendo_dados()            

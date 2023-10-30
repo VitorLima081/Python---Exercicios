@@ -1,0 +1,54 @@
+import time
+
+class Matriz():
+    def __init__(self):
+        pass
+
+    def recebendo_dados(self):
+        print('=-' *20)
+        print("\x1b[33mMATRIZ - PYTHON\x1b[0m")
+        print('=-' *20)
+
+        
+        while True:
+            try:
+                self.n0 = int(input('Digite o valor para [0] x [0]:'))
+                self.n1 = int(input('Digite o valor para [0] x [1]:'))
+                self.n2 = int(input('Digite o valor para [0] x [2]:'))
+                self.n3 = int(input('Digite o valor para [1] x [0]:'))
+                self.n4 = int(input('Digite o valor para [1] x [1]:'))
+                self.n5 = int(input('Digite o valor para [1] x [2]:'))
+                self.n6 = int(input('Digite o valor para [2] x [0]:'))
+                self.n7 = int(input('Digite o valor para [2] x [1]:'))
+                self.n8 = int(input('Digite o valor para [2] x [2]:'))
+
+                if isinstance(self.n0, int) and isinstance(self.n1, int) and isinstance(self.n2, int) and isinstance(self.n3, int) and isinstance(self.n4, int) and isinstance(self.n5, int) and isinstance(self.n6, int) and isinstance(self.n7, int) and isinstance(self.n8, int):
+                    break
+
+            except ValueError:
+                print("\x1b[31m!ERRO! SÃO ACEITO APENAS CARACTERES NUMERICOS !ERRO!\x1b[0m")        
+
+
+        self.criando_matriz()
+
+    def criando_matriz(self):
+        print('=-' *20)
+        print("\x1b[31mCRIANDO MATRIZ...\x1b[0m")
+        print('=-' *20)
+        time.sleep(2)
+        
+        Matriz = [
+            [self.n0, self.n1, self.n2],
+            [self.n3, self.n4, self.n5],
+            [self.n6, self.n7, self.n8]
+        ]                   
+
+        for elemento in Matriz:
+            print(elemento)
+
+if __name__ == "__main__":
+    referencia = Matriz()
+    referencia.recebendo_dados()            
+
+
+

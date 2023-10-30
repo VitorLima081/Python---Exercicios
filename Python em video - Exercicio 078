@@ -1,0 +1,46 @@
+class MaioreMenor():
+    def __init__(self):
+        pass
+
+    def recebendo_dados(self):
+        self.numeros = [i for i in range(1, 5 + 1)]
+        self.numeros_dig = []
+        
+        while True:
+            try:
+                for elemento in self.numeros:
+                    self.valores = int(input(f"Digite o {elemento}º valor:"))
+                    self.numeros_dig.append(self.valores)
+
+                if isinstance(self.valores, int):
+                    break    
+
+                  
+            except ValueError:
+                print("\x1b[33m!ERRO! SÃO ACEITO APENAS CARACTERES NUMERICOS !ERRO!\x1b[0m")    
+
+            
+        self.analisando_valores()
+  
+
+    def analisando_valores(self):
+        maior_valor = max(self.numeros_dig)
+        menor_valor = min(self.numeros_dig)
+        posicao_maior = self.numeros_dig.index(maior_valor)
+        posicao_menor = self.numeros_dig.index(menor_valor)
+        
+        print(f"\x1b[33mO maior valor digitado foi: {maior_valor}\x1b[0m")
+        print(f"\x1b[33mO menor valor digitado foi: {menor_valor}\x1b[0m")
+        print(f"\x1b[33mO maior valor esta na {posicao_maior}º na lista!\x1b[0m")
+        print(f"\x1b[33mO menor valor esta na {posicao_menor}º na lista!\x1b[0m")
+              
+        
+
+
+if __name__ == "__main__":
+    referencia = MaioreMenor()
+    referencia.recebendo_dados()
+
+
+               
+             

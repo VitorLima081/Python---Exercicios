@@ -1,0 +1,24 @@
+class ContandoVogais():
+    def __init__(self):
+        pass
+
+    def criando_tupla(self):
+        palavras = ["python", "tupla", "aleatório", "exemplo", "programação", "linguagem", "gato", "ifood", "mainha"]
+        self.tupla_palavras = tuple(palavras)
+        self.analisando_tuplas()
+
+    def analisando_tuplas(self):
+        vogais = ['a', 'e', 'i', 'o', 'u']
+        for elemento in self.tupla_palavras:
+            vogais_na_palavra = []
+            for vogal in vogais:
+                if vogal in elemento:
+                    vogais_na_palavra.append(vogal)
+            if vogais_na_palavra:
+                print(f"A palavra {elemento} possui as seguintes vogais: {vogais_na_palavra}")
+            else:
+                print(f"A palavra {elemento} não possui vogais.")
+
+if __name__ == "__main__":
+    referencia = ContandoVogais()
+    referencia.criando_tupla()

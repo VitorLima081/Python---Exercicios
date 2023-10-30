@@ -1,0 +1,56 @@
+import time
+
+class ValidandoExpressoes():
+    def __init__(self):
+        pass
+
+    def recebendo_dados(self):
+        print('=-' *20)
+        print("\x1b[34m VERIFICANDO EXPRESSÕES - PYTHON\x1b[0m")
+        print('=-' *20)
+        
+        while True:
+            self.expressao = input('Digite uma expressão:')
+
+            if self.expressao:
+                break
+            else:
+                print("\x1b[32m!ERRO! O CAMPO NÃO PODE ESTAR VAZIO !ERRO!\x1b[0m")
+        
+        self.analisando_expressao()
+        
+
+    def analisando_expressao(self):
+        print('=-' *20)
+        print("\x1b[31mANALISANDO EXPRESSÃO...\x1b[0m")
+        print('=-' *20)
+        time.sleep(2)
+        abertura = []
+        fechamento = []
+        conversao_lista = list(self.expressao)
+        for elemento in conversao_lista:
+            if elemento == '(':
+                abertura.append(elemento)
+
+            elif elemento == ")":
+                fechamento.append(elemento)
+
+        contando_abertura = len(abertura)
+        contando_fechamento = len(fechamento)
+
+        if contando_abertura == contando_fechamento:
+            print("\x1b[33mA EXPRESSÃO É VALIDA!\x1b[0m")
+
+        else:
+            print("\x1b[32mA EXPRESSÃO É INVALIDA!\x1b[0m")                
+
+                
+                
+if __name__ == "__main__":
+    referencia = ValidandoExpressoes()
+    referencia.recebendo_dados()
+
+
+
+
+
