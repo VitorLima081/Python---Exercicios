@@ -1,0 +1,114 @@
+class AnaliseNotas():
+    def __init__(self):
+        pass
+
+    def recebendo_dados(self):
+        print('=-' *20)
+        print("\x1b[34mREGISTRO ESCOLAR - PYTHON\x1b[0m")
+        print('=-' *20)
+        
+        self.dados_alunos = []
+        while True:
+            try:
+                while True:
+                    self.nome = input('Digite o nome do aluno:')
+                    
+                    if self.nome == '':
+                     print("\x1b[32m!ERRO! O CAMPO ESTA VAZIO !ERRO!\x1b[0m")
+
+                    else:
+                        break 
+
+                self.n1 = float(input('Digite a 1º nota do aluno:'))
+                self.n2 = float(input('Digite a 2º nota do aluno:'))    
+                self.dados_alunos.append((self.nome, self.n1, self.n2))
+
+                while True:
+                    self.continuar = input('Você deseja adicionar outro aluno? [SIM/NAO]').lower()    
+
+                    if self.continuar in ['sim', 'nao']:
+                        break
+
+                    else:
+                        print("\x1b[32m!ERRO! DIGITE SIM OU NAO !ERRO!\x1b[0m")
+
+                if self.continuar == 'sim':
+                    pass
+
+                elif self.continuar == 'nao':
+                    break
+
+            except ValueError:
+                print("\x1b[32m!ERRO! SÃO ACEITO APENAS CARACTERES NUMERICOS !ERRO!\x1b[0m")            
+
+        self.analisando_notas()
+
+    def analisando_notas(self):
+        self.alunos_aprovados = []
+        self.alunos_reprovados = []
+
+        for elemento in self.dados_alunos:
+            nome, n1, n2 = elemento
+            if n1 and n2:
+                media = (n1 + n2) / 2 
+                if media >= 7:
+                    self.alunos_aprovados.append((nome, media))
+                    
+                
+                elif media <= 7:
+                    self.alunos_reprovados.append((nome, media))
+
+        if self.alunos_aprovados:
+            print("\x1b[33mAPROVADOS NO ANO LETIVO\x1b[0m")  
+            for apv in self.alunos_aprovados:
+                nome, media = apv
+                print(f"{nome} com {media} de media!")      
+
+                    
+        if self.alunos_reprovados:
+            print("\x1b[33mREPROVADOS NO ANO LETIVO\x1b[0m")
+            for rpv in self.alunos_reprovados:
+                nome, media = rpv  
+                print(f"{nome} com {media} de media!")    
+
+        self.verificando_notas()
+        
+    def verificando_notas(self):
+            while True:
+                while True:
+                    self.verificar = input('Quer verificar as notas de qual aluno? ([END] para encerrar)').lower()     
+                    if self.verificar == '':
+                        print("\x1b[32m!ERRO! O CAMPO ESTA VAZIO !ERRO!\x1b[0m")
+
+                    else:
+                        break   
+
+                if self.verificar == 'end':
+                    print("\x1b[33mATÉ A PROXIMA!\x1b[0m")
+                    quit()  
+
+                else:
+                        
+                        for elemento_real in self.dados_alunos:
+                            nome_real, n1_real, n2_real = elemento_real
+                            
+                            
+                            if self.verificar == nome_real:
+                                print(f'As notas do aluno {nome_real} foram: {n1_real} e {n2_real}')
+                                break
+                                
+
+                        if self.verificar != nome_real:
+                            print('NÃO ENCONTRAMOS REGISTRO DO ALUNO!')       
+                        
+                               
+
+
+if __name__ == "__main__":
+    referencia = AnaliseNotas()
+    referencia.recebendo_dados()
+
+             
+
+
+

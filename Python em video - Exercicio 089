@@ -1,0 +1,50 @@
+class AnalisandoDicionario():
+    def __init__(self):
+        pass
+
+    def recebendo_dados(self):
+        self.dados = []
+        
+        while True:
+            try:
+                self.nome = input('Digite o nome do aluno:')
+                if self.nome == '':
+                    print("\x1b[32m!ERRO! O CAMPO ESTA EM BRANCO !ERRO!\x1b[0m")
+
+                else:
+                    pass    
+                
+                self.media = float(input('Digite a media do aluno:'))
+                self.dados.append((self.nome, self.media))
+
+                if isinstance(self.media, float):
+                    break
+
+            except ValueError:
+                print("\x1b[33m!ERRO! SÃO ACEITO APENAS CARACTERES NUMERICOS !ERRO!\x1b[0m")
+
+        self.analisando_dados()
+
+    def analisando_dados(self):
+       
+        for elemento in self.dados:
+            nome, media = elemento
+            if media >= 7:
+                print(f"O aluno {nome} teve media {media} e esta APROVADO!")
+                
+                
+
+            elif media > 5 and media < 7:
+                print(f"O aluno {nome} teve media {media} e esta em RECUPERAÇÃO!")
+                
+
+            else: 
+                print(f"O aluno {nome} teve media {media} e esta REPROVADO!")
+                    
+
+
+if __name__ == "__main__":
+    referencia = AnalisandoDicionario()
+    referencia.recebendo_dados()
+
+
