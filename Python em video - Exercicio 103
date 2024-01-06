@@ -1,0 +1,32 @@
+class Validando_dados():
+    def __init__(self):
+        pass
+
+    def recebendo_dados(self):
+        while True:
+            try:
+                self.nome = input('Qual o nome do jogador?')
+                self.gols = int(input('Quantos gols ele marcou?'))
+
+                if isinstance(self.gols, int):
+                    break
+
+            except ValueError:
+                print("\x1b[35m!ERRO! SÃO ACEITO APENAS CARACTERES NUMERICOS !ERRO!\x1b[0m")
+
+        self.analisando_dados()
+
+    def analisando_dados(self):
+        
+        if self.nome == '':
+            self.nome = 'desconhecido'
+
+        
+        print(f'O jogador {self.nome} fez {self.gols} gols no campeonato!')    
+        quit()
+
+
+if __name__ == "__main__":
+    referencia = Validando_dados()
+    referencia.recebendo_dados()
+

@@ -1,0 +1,41 @@
+import math
+
+class ResultadoFatorial():
+    def __init__(self):
+        pass
+
+    def recebendo_fatorial(self):
+
+        self.numero = int(input('Qual numero você quer verificar seu fatorial:'))
+        self.calculando_dados()
+        
+        
+
+    def calculando_dados(self):
+        self.resultado_fatorial = math.factorial(self.numero)
+        
+        while True:
+            self.condicao = input('Voce deseja verificar o processo fatorial? [SIM/NAO]').lower()
+            if self.condicao in ['sim', 'nao']:
+                break
+            
+            else:
+                print('!ERRO! RESPONDA COM SIM OU NAO !ERRO!')
+        
+        if self.condicao == 'sim':
+            self.numeros = [i for i in range(self.numero,0, -1)]
+            for elemento in self.numeros:
+                print(f'{self.numero} x {elemento}', end='')
+            
+            print(f'={self.resultado_fatorial}')
+
+        else:
+            print(f'O resutado fatorial é {self.resultado_fatorial}')
+         
+
+
+
+if __name__ == "__main__":
+    referencia = ResultadoFatorial()
+    referencia.recebendo_fatorial()
+

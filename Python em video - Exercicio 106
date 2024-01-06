@@ -1,0 +1,53 @@
+import time
+from googletrans import Translator
+from io import StringIO
+import sys
+
+
+class SistemaAjuda():
+    def __init__(self):
+        self.chamada_traducao = Translator()
+        pass
+
+    def recebendo_dados(self):
+        print("\x1b[34mSISTEMA DE AJUDA EM PYTHON\x1b[0m")
+        self.valor = input('Digite a FUNÇÃO para verificar o manual:')
+        self.analisando_dados()
+        
+    def analisando_dados(self):
+         
+        print("\x1b[33mBUSCANDO NO DICIONARIO...\x1b[0m")
+        time.sleep(2)
+        buffer_texto = StringIO()
+        sys.stdout = buffer_texto
+        help(self.valor)
+        sys.stdout = sys.__stdout__  
+        texto_ingles = buffer_texto.getvalue()  
+        traducao = self.chamada_traducao.translate(text=texto_ingles, src='en', dest='pt')
+        print(traducao.text)
+        self.verificacao()
+
+    def verificacao(self):
+        while True:
+            self.outro_valor = input("Voce deseja verificar outra função? [SIM/NAO]").lower()
+            if self.outro_valor == "":
+                print("\x1b[33m!ERRO! O CAMPO ESTA VAZIO !ERRO!\x1b[0m")
+
+            if self.outro_valor in ['sim', 'nao']:
+                break
+
+            else:
+                print("\x1b[33m!ERRO! SÃO ACEITO APENAS 'SIM' OU 'NAO' !ERRO!\x1b[0m") 
+
+        if self.outro_valor == 'sim':
+            self.recebendo_dados()
+
+        else:
+            print('Obrigado por ultilizar o nosso manual!')
+            quit()                 
+
+if __name__== "__main__":
+    referencia = SistemaAjuda()
+    referencia.recebendo_dados()
+
+

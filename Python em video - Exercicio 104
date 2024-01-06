@@ -1,0 +1,32 @@
+import time
+
+class ValidandoNumeros():
+    def __init__(self):
+        pass
+
+    def recebendo_dados(self):
+        while True:
+            try:
+                self.numero = int(input('Digite um numero:'))
+
+                if isinstance(self.numero, int):
+                    break
+
+            except ValueError:
+                print("\x1b[33m!ERRO! SÃO ACEITO APENAS CARACTERES NUMERICOS !ERRO!\x1b[0m")
+
+        self.analisando_valores()
+
+    def analisando_valores(self):
+        print(f"\x1b[35mO numero digitado foi...\x1b[0m")
+        time.sleep(1)
+        print(f"\x1b[35m{self.numero}\x1b[0m")
+    
+        quit()
+
+
+if __name__ == "__main__":
+    referencia = ValidandoNumeros()
+    referencia.recebendo_dados()
+
+                                  

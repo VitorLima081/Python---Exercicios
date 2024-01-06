@@ -1,0 +1,113 @@
+import time
+
+class DicionarioSistema():
+    def __init__(self):
+        pass
+
+    def recebendo_dados(self):
+        self.funcionarios = []
+        while True:
+            try:
+                self.nome = input('Digite o nome do funcionario:')
+                while True:
+                    if self.nome == '':
+                        print("\x1b[33m!ERRO! O CAMPO ESTA VAZIO, DIGITE UM VALOR !ERRO!\x1b[0m")
+
+                    else:
+                        break
+
+                self.sexo = input('Digite o sexo do funcionario [F/M]:').lower()
+                while True:
+                    if self.sexo in ['f', 'm']:
+                        break
+                        
+
+                    else:
+                       print("\x1b[33m!ERRO! DIGITE F OU M, REFERENCIAS PARA FEMININO OU MASCULINO !ERRO!\x1b[0m")
+                       self.sexo = input('Digite o sexo do funcionario [F/M]:').lower()
+                self.idade = int(input('Qual a idade do funcionario:'))
+                funcionario = {"nome": self.nome, "idade": self.idade, "sexo": self.sexo}
+                self.funcionarios.append(funcionario)
+
+                self.continuar = input('Quer continuar o cadastro? [SIM/NAO]').lower()
+                while True:
+                    if self.continuar in ['sim', 'nao']:
+                        break
+
+                    else:
+                        print("\x1b[33m!ERRO! DIGITE SIM OU NAO !ERRO!\x1b[0m")
+                        self.continuar = input('Quer continuar o cadastro? [SIM/NAO]').lower
+
+                if self.continuar == 'sim':
+                    pass
+                else:
+                    break
+
+            except ValueError:
+                  print("\x1b[33m!ERRO! SÃO ACEITO APENAS CARACTERES NUMERICOS !ERRO!\x1b[0m")
+
+
+        self.analisando_dados()
+
+    def analisando_dados(self):
+        print("\x1b[33mANALISANDO DADOS...\x1b[0m")
+        time.sleep(2)
+        
+        self.pessoas_total = 0
+        self.media_pessoas = []
+        self.mulheres_total = []
+        self.velhos_nome = []
+        self.velhos_idade = []
+
+        for elemento in self.funcionarios:
+            if elemento['nome']:
+                self.pessoas_total += 1
+                
+        print('=-' *20)
+        print(f'O cadastro contém {self.pessoas_total} pessoas!')
+        print('=-' *20)
+        
+
+        for soma in self.funcionarios:   
+                self.media_pessoas.append(soma['idade'])   
+                self.lista_total = len(self.media_pessoas)
+                self.media_total = sum(self.media_pessoas) / self.lista_total
+            
+        print(f'A media da idade das pessoas é {round(self.media_total)}')
+        print('=-' *20)
+
+        print('As mulheres da lista estão abaixo...')
+        for mulheres in self.funcionarios:
+            if mulheres['sexo'] == 'f':
+                self.mulheres_total.append(mulheres['nome'])
+        
+        for nome_mulheres in self.mulheres_total:
+            if nome_mulheres:
+                print(nome_mulheres)
+            else:
+                print('Não foram encontradas mulheres na lista!')
+        print('=-' *20)
+
+
+        print(f'As pessoas mais velhas da lista estão abaixo...')
+        for velhos in self.funcionarios:
+            if velhos['idade'] > self.media_total:
+                self.velhos_nome.append(velhos['nome'])
+                self.velhos_idade.append(velhos['idade'])
+        
+        for velhos_nome, velhos_idade in zip(self.velhos_nome, self.velhos_idade):
+            print(f'{velhos_nome} com {velhos_idade}')
+
+
+if __name__ == "__main__":
+    referencia = DicionarioSistema()
+    referencia.recebendo_dados()
+
+
+
+                
+
+
+
+
+

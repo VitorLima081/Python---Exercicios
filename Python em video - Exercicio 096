@@ -1,0 +1,47 @@
+class PrintEspecial():
+    def __init__(self):
+        pass
+
+    print('=-' *20)
+    print("\x1b[34mMANIPULANDO PRINT\x1b[0m")
+    print('=-' *20)
+    
+    def recebendo_dados(self):
+        while True:
+            self.caracteres = input('Digite uma ou mais palavras:')
+            if self.caracteres == '':
+                print("\x1b[33m!ERRO! O CAMPO ESTA VAZIO !ERRO!\x1b[0m")
+            else:
+                break
+
+        
+        self.analisando_string()
+
+    def analisando_string(self):
+        total_caracteres = len(self.caracteres)
+        print('<>' *total_caracteres)
+        print(self.caracteres)
+        print('<>' *total_caracteres)
+
+        while True:
+            self.continuar = input('Você deseja continuar? [SIM/NAO]').lower()
+            if self.continuar in ['sim', 'nao']:
+                break
+            else:
+                print("\x1b[33m!ERRO! DIGITE SIM OU NAO !ERRO!\x1b[0m")
+
+        if self.continuar == 'sim':
+            self.recebendo_dados()
+
+        else:
+            print("\x1b[33mATE BREVE\x1b[0m")
+            quit()
+
+if __name__ == "__main__":
+    referencia = PrintEspecial()
+    referencia.recebendo_dados()
+                    
+
+
+                        
+       

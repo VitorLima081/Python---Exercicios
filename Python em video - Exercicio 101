@@ -1,0 +1,52 @@
+from datetime import datetime
+
+
+
+class Votacao():
+    def __init__(self):
+        pass
+
+    def recebendo_dados(self):
+        while True:
+            try:
+             while True:
+                self.nome = input('Digite o seu nome:')
+                if self.nome == '':
+                    print('!ERRO! O CAMPO ESTA VAZIO !ERRO!')
+                else:
+                    break    
+            
+             self.idade = int(input('Digite seu ano de nascimento:'))
+             self.verificando_nomes()        
+        
+            except ValueError:
+             print('!ERRO! SÃO ACEITO APENAS CARACTERES NUMERICOS !ERRO!')
+
+    def verificando_nomes(self):
+        self.data_atual = datetime.now().year
+        self.idade_atual = self.data_atual - self.idade
+       
+        
+        while True:
+
+            if self.idade_atual >= 16 and self.idade_atual <= 17:
+                print(f'{self.nome} tem o voto como OPCIONAL!')
+                break
+                
+
+            elif self.idade_atual < 16:
+                print(f'{self.nome} tem o voto NEGADO!')
+                break
+                
+
+            elif self.idade_atual >= 18 and self.idade_atual <= 70:
+                print(f'{self.nome} tem o voto OBRIGATORIO!')
+                break
+        
+        quit()
+
+if __name__ == "__main__":
+    referencia = Votacao()
+    referencia.recebendo_dados()
+
+

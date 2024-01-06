@@ -1,0 +1,82 @@
+class AnalisandoNotas():
+    def __init__(self):
+        pass
+
+    def recebendo_dados(self):
+        self.cont = 0
+        self.notas = []
+        
+        while True:
+            try:
+                self.quantidade = int(input('Quantas notas você deseja adicionar?'))
+                self.numeros = [i for i in range(1, self.quantidade + 1)]
+                for elemento in self.numeros:
+                    self.valores = float(input(f'Digite a {elemento}º nota:'))
+                    self.notas.append(self.valores)
+                    self.cont +=1
+
+                if self.cont == self.numeros:
+                    break
+
+            except ValueError:
+                print("\x1b[33m!ERRO! SÃO ACEITO APENAS CARACTERES NUMERICOS !ERRO!\x1b[0m")
+
+            self.analisando_media()    
+
+    def analisando_media(self):
+        self.soma = sum(self.notas)
+        self.media = self.soma/len(self.notas)
+        print(f"A media do aluno foi {round(self.media, 1)}")
+        
+        while True:
+            self.verificar = input('Você deseja verificar a SITUAÇÃO do aluno? [SIM/NAO]').lower()
+            if self.verificar == "":
+                print("\x1b[35m!ERRO! O CAMPO ESTA VAZIO !ERRO!\x1b[0m")
+
+            if self.verificar in ['sim', 'nao']:
+                break
+
+            else:
+                print("\x1b[35m!ERRO! SÃO ACEITO APENAS SIM OU NAO !ERRO!\x1b[0m")
+
+        if self.verificar == 'sim':
+            self.situacao()
+
+        else:
+            print("Obrigado por usar nosso programa!")
+            quit()    
+
+
+    def situacao(self):
+        if self.media >= 7:
+            print("O aluno esta \x1b[34mAPROVADO!\x1b[0m")
+            
+
+        elif self.media < 7:
+            print("O aluno esta \x1b[35mREPROVADO!\x1b[0m")    
+            
+        while True:
+            self.adicionar_notas = input('Você deseja calcular outra media? [SIM/NAO]')
+            
+            if self.adicionar_notas == "":
+             print("\x1b[35m!ERRO! O CAMPO ESTA VAZIO !ERRO!\x1b[0m")
+
+            if self.adicionar_notas in ['sim', 'nao']:
+                break
+
+            else:
+                print("\x1b[35m!ERRO! SÃO ACEITO APENAS SIM OU NAO !ERRO!\x1b[0m")
+
+        if self.adicionar_notas == 'sim':
+            self.recebendo_dados()
+
+        else:
+            print("Obrigado por usar nosso programa!")
+            quit()    
+
+
+if __name__ == "__main__":
+    referencia = AnalisandoNotas()
+    referencia.recebendo_dados()
+
+

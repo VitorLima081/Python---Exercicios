@@ -1,0 +1,68 @@
+import time
+
+class Contagem():
+    def __init__(self):
+        pass
+
+    def iniciando_contagem(self):
+        self.numeros = [i for i in range(0, 10 +1)]
+        self.mostrar_contagem()
+
+    def mostrar_contagem(self):
+        for elemento in self.numeros:
+            print(elemento)    
+
+        print("\x1b[33mAGORA É SUA VEZ...\x1b[0m")
+        inicio = int(input('Inicio: '))
+        fim = int(input('Fim: '))
+        periodo = int(input('Periodo: '))
+
+        if inicio > fim:
+            numeros_real_menor = [i for i in range(inicio, fim - 1, -periodo)]
+            for elemento_real_menor in numeros_real_menor:
+                time.sleep(1)
+                print(elemento_real_menor)
+
+            while True:
+                self.continuar = input('Você deseja continuar? [SIM/NAO]').lower()
+                if self.continuar in ['sim', 'nao']:
+                    break
+                else:
+                    print("\x1b[33m!ERRO! DIGITE SIM OU NAO !ERRO!\x1b[0m")
+
+            if self.continuar == 'sim':
+                self.mostrar_contagem()
+
+            else:
+                print("\x1b[33mATE BREVE\x1b[0m")
+                quit()
+
+              
+        elif inicio < fim:
+            numeros_real = [i for i in range(inicio, fim + 1, periodo)]
+            for elemento_real in numeros_real:
+                time.sleep(1)
+                print(elemento_real)
+
+            while True:
+                self.continuar = input('Você deseja continuar? [SIM/NAO]').lower()
+                if self.continuar in ['sim', 'nao']:
+                    break
+                else:
+                    print("\x1b[33m!ERRO! DIGITE SIM OU NAO !ERRO!\x1b[0m")
+
+            if self.continuar == 'sim':
+                self.mostrar_contagem()
+
+            else:
+                print("\x1b[33mATE BREVE\x1b[0m")
+                quit()
+        else:
+            print("Os valores de início e fim são iguais.")
+
+        quit()    
+        print("\x1b[33mATE BREVE!\x1b[0m")
+
+if __name__ == "__main__":
+    referencia = Contagem()
+    referencia.iniciando_contagem()

@@ -1,0 +1,84 @@
+from datetime import datetime
+import time
+
+class CarteiraTrabalho():
+    def __init__(self):
+        pass
+
+    def recebendo_dados(self):
+        self.dados = []
+        while True:
+            try:
+                self.nome = input('Nome do contribuinte:')
+                while True:
+                    if self.nome == '':
+                     print("\x1b[33m!ERRO! O CAMPO ESTA VAZIO !ERRO!\x1b[0m")
+                     self.nome = input('Nome do contribuinte:')
+
+                    else:
+                        break 
+                
+                self.ano = int(input('Ano de nascimento:'))
+                self.carteira = int(input('Possui carteira de trabalho? [0 NAO TEM]'))
+                
+                if self.carteira != 0:
+                 
+                    self.ano_contratacao = int(input('Qual ano de contratação?'))
+                    self.salario = float(input('Qual o salario do usuario? R$'))
+                    self.dados.append((self.nome, self.ano, self.carteira, self.ano_contratacao, self.salario))
+                    self.analisando_dados()
+                    break
+
+                else:
+
+                    self.carteira = 'NAO TEM CARTEIRA'
+                    self.dados.append((self.nome, self.ano, self.carteira))
+                    self.analisando_novato()
+                    break 
+
+
+            except ValueError:
+                print("\x1b[33m!ERRO! SÃO ACEITO APENAS CARACTERES NUMERICOS !ERRO!\x1b[0m")
+
+      
+
+    def analisando_novato(self):
+        print("\x1b[33mANALISANDO DADOS...\x1b[0m")
+        time.sleep(2)
+        print('=-' * 20)
+        print("\x1b[33mDADOS DO CONTRIBUINTE\x1b[0m")
+        print('=-' * 20)
+    
+        print(f'Nome: {self.nome}')
+        print(f'Idade: {self.ano}')
+        print(f'Carteira: {self.carteira}') 
+        
+    
+    
+    
+    def analisando_dados(self):
+     print("\x1b[33mANALISANDO DADOS...\x1b[0m")
+     time.sleep(2)
+
+     for elemento in self.dados:
+        nome, idade, carteira, ano_contratacao, salario = elemento
+        self.aposentaria = ano_contratacao + 15 
+        print('=-' * 20)
+        print("\x1b[33mDADOS DO CONTRIBUINTE\x1b[0m")
+        print('=-' * 20)
+        print(f'Nome: {nome}')
+        print(f'Idade: {idade}')
+        print(f'Carteira: {carteira}')
+        print(f'Ano de contratação: {ano_contratacao}')
+        print(f'Salario: R${salario}')
+        print(f'Aposentadoria: É necessario ao menos 15 anos de contribuição pra aposentadoria por idade. Nesse cenario ira se aposentar em {self.aposentaria}!')
+
+    
+
+    
+        
+
+if __name__ == "__main__":
+    referencia = CarteiraTrabalho()
+    referencia.recebendo_dados()
+

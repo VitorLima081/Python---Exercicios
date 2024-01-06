@@ -1,0 +1,48 @@
+import time
+
+class CalculandoArea():
+    def __init__(self):
+        pass
+
+    print('=-' *20)
+    print("\x1b[33mCALCULANDO AREA\x1b[0m")
+    print('=-' *20)
+    
+    def recebendo_dados(self):
+        while True:
+            try:
+                self.largura = float(input('Largura do terreno:'))
+                self.comprimento = float(input('Comprimento do terreno:'))
+                break
+
+            except ValueError:
+                print("\x1b[35m!ERRO! SÃO ACEITO APENAS CARACTERES NUMERICOS !ERRO!\x1b[0m")    
+        
+        
+        self.calculando_area()
+
+    def calculando_area(self):
+        area = self.largura * self.comprimento
+        print("\x1b[35mCALCULANDO AREA...\x1b[0m")
+        time.sleep(2)
+        print(f'A area do terreno é: {area}m²')
+        
+        while True:
+         self.continuar = input('Deseja continuar? [SIM/NAO]').lower()
+         if self.continuar in ['sim', 'nao']:
+             break
+         else:
+             print("\x1b[35m!ERRO! DIGITE SIM OU NAO !ERRO!\x1b[0m")
+
+        if self.continuar == 'sim':
+            self.recebendo_dados()
+
+        else:
+            print("\x1b[35mATE BREVE!\x1b[0m")   
+            quit()
+
+if __name__ == "__main__":
+    referencia = CalculandoArea()
+    referencia.recebendo_dados()
+
+

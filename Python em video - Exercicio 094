@@ -1,0 +1,99 @@
+class JogadorFutebol():
+    def __init__(self):
+        pass
+
+    def recebendo_dados(self):
+        self.dados_atleta = []
+        self.gols_referencia = []
+        while True:
+            try:
+                self.nome = input('Qual o nome do jogador:')
+                while True:
+                    if self.nome == '':
+                        print("\x1b[33m!ERRO! O CAMPO ESTA VAZIO !ERRO!\x1b[0m")
+
+                    else:
+                        break    
+                
+                self.partidas = int(input('Quantas partidas o jogador atuou no campeonato:'))
+                self.numeros = [i for i in range(1, self.partidas + 1)]
+                for elemento in self.numeros:
+                 self.gols = int(input(f'Quantos gols o jogador marcou na {elemento}º partida: '))
+                 self.gols_referencia.append(self.gols)
+
+                atletas = {"nome": self.nome, "partidas": self.partidas, "gols": self.gols_referencia}
+                self.dados_atleta.append(atletas)
+
+                self.continuar = input('Quer continuar o cadastro? [SIM/NAO]').lower()
+                while True:
+                    if self.continuar in ['sim', 'nao']:
+                        break
+
+                    else:
+                        print("\x1b[33m!ERRO! DIGITE SIM OU NAO !ERRO!\x1b[0m")
+                        self.continuar = input('Quer continuar o cadastro? [SIM/NAO]').lower
+
+                if self.continuar == 'sim':
+                    pass
+                else:
+                    break
+
+            except ValueError:
+                print("\x1b[33m!ERRO! SÃO ACEITO APENAS CARACTERES NUMERICOS !ERRO!\x1b[0m")     
+        
+            
+        self.analisando_dados()
+
+    def analisando_dados(self):
+        self.gols_total = []
+        for atleta in self.dados_atleta:
+            print(f"Segue os dados do atleta {atleta['nome']}...")
+            if atleta['gols']:
+                self.gols_total.append(atleta['gols'])
+                for gols_fracao, numeros_fracao in zip(self.gols_total[0], self.numeros):
+                    print(f'O atleta marcou {gols_fracao} na {numeros_fracao}º partida!')
+            
+                print(f"O atleta marcou:{sum(self.gols_total[0])} no total!")
+                
+
+        self.jogador_individual = input('Quer analisar dados de qual jogador individualmente? [999 PARA ENCERRAR]')
+        while True:
+            if self.jogador_individual == '':
+                print('!ERRO! O CAMPO ESTA VAZIO !ERRO!')
+
+            else:
+                break
+
+        if self.jogador_individual == 999:
+            print('Programa encerrado!')
+            quit()
+
+        else:        
+         self.continuar_pesquisa()   
+
+
+    def continuar_pesquisa(self):     
+     
+        while True:
+            for dado in self.dados_atleta:
+                if self.jogador_individual == dado['nome']:
+                    print(dado['nome'])
+                    print(self.gols_total)      
+                    print(f"{dado['nome']} marcou {sum(self.gols_total)}")
+                    self.jogador_individual = input('Quer analisar dados de qual jogador individualmente? [999 PARA ENCERRAR]')
+
+                else:
+                    print("!ERRO! NÃO FOI ENCONTRADO O ATLETA EM NOSSOS SISTEMA !ERRO!")
+                    self.jogador_individual = input('Quer analisar dados de qual jogador individualmente? [999 PARA ENCERRAR]')
+
+                    
+                if self.jogador_individual == 999:
+                    print('Programa encerrado!')
+                    quit()
+
+
+
+        
+if __name__ == "__main__":
+    referencia = JogadorFutebol()
+    referencia.recebendo_dados()

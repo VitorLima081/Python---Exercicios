@@ -1,0 +1,56 @@
+class JogadorFutebol():
+    def __init__(self):
+        pass
+
+    def recebendo_dados(self):
+        self.dados_atleta = []
+        self.gols_referencia = []
+        while True:
+            try:
+                self.nome = input('Qual o nome do jogador:')
+                while True:
+                    if self.nome == '':
+                        print("\x1b[33m!ERRO! O CAMPO ESTA VAZIO !ERRO!\x1b[0m")
+
+                    else:
+                        break    
+                
+                self.partidas = int(input('Quantas partidas o jogador atuou no campeonato:'))
+                self.numeros = [i for i in range(1, self.partidas + 1)]
+                for elemento in self.numeros:
+                 self.gols = int(input(f'Quantos gols o jogador marcou na {elemento}º partida: '))
+                 self.gols_referencia.append(self.gols)
+                 self.dados_atleta.append((self.nome, self.gols))
+                 
+
+            except ValueError:
+                print("\x1b[33m!ERRO! SÃO ACEITO APENAS CARACTERES NUMERICOS !ERRO!\x1b[0m")     
+        
+            
+            self.analisando_dados()
+
+    def analisando_dados(self):
+        self.gols_total = []
+        for elemento in self.dados_atleta:
+            nome, numeros = elemento
+            self.gols_total.append(numeros)
+
+        self.gols_real = sum(self.gols_total)    
+        print(f'O jogador {self.nome} jogou {self.partidas} partidas!')
+        for elemento_real, referencia in zip(self.numeros, self.gols_referencia):
+          print(f'Na {elemento_real}º partida ele marcou {referencia} gols!')
+        
+        print(f'{self.nome} marcou {sum(self.gols_referencia)} ate o momento!')
+        quit()
+
+        
+if __name__ == "__main__":
+    referencia = JogadorFutebol()
+    referencia.recebendo_dados()
+
+
+
+
+
+
+
